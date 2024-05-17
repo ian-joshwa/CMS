@@ -1,0 +1,17 @@
+C:\Users\Ian Joshwa\source\repos\CMS\CMS.DataAccessLayer\bin\Debug\net6.0\CMS.DataAccessLayer.deps.json
+C:\Users\Ian Joshwa\source\repos\CMS\CMS.DataAccessLayer\bin\Debug\net6.0\CMS.DataAccessLayer.dll
+C:\Users\Ian Joshwa\source\repos\CMS\CMS.DataAccessLayer\bin\Debug\net6.0\CMS.DataAccessLayer.pdb
+C:\Users\Ian Joshwa\source\repos\CMS\CMS.DataAccessLayer\bin\Debug\net6.0\CMS.Models.dll
+C:\Users\Ian Joshwa\source\repos\CMS\CMS.DataAccessLayer\bin\Debug\net6.0\CMS.Models.pdb
+C:\Users\Ian Joshwa\source\repos\CMS\CMS.DataAccessLayer\obj\Debug\net6.0\CMS.DataAccessLayer.csproj.AssemblyReference.cache
+C:\Users\Ian Joshwa\source\repos\CMS\CMS.DataAccessLayer\obj\Debug\net6.0\CMS.DataAccessLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ian Joshwa\source\repos\CMS\CMS.DataAccessLayer\obj\Debug\net6.0\CMS.DataAccessLayer.AssemblyInfoInputs.cache
+C:\Users\Ian Joshwa\source\repos\CMS\CMS.DataAccessLayer\obj\Debug\net6.0\CMS.DataAccessLayer.AssemblyInfo.cs
+C:\Users\Ian Joshwa\source\repos\CMS\CMS.DataAccessLayer\obj\Debug\net6.0\CMS.DataAccessLayer.csproj.CoreCompileInputs.cache
+C:\Users\Ian Joshwa\source\repos\CMS\CMS.DataAccessLayer\obj\Debug\net6.0\CMS.DataAccessLayer.csproj.CopyComplete
+C:\Users\Ian Joshwa\source\repos\CMS\CMS.DataAccessLayer\obj\Debug\net6.0\CMS.DataAccessLayer.dll
+C:\Users\Ian Joshwa\source\repos\CMS\CMS.DataAccessLayer\obj\Debug\net6.0\refint\CMS.DataAccessLayer.dll
+C:\Users\Ian Joshwa\source\repos\CMS\CMS.DataAccessLayer\obj\Debug\net6.0\CMS.DataAccessLayer.pdb
+C:\Users\Ian Joshwa\source\repos\CMS\CMS.DataAccessLayer\obj\Debug\net6.0\ref\CMS.DataAccessLayer.dll
+C:\Users\Ian Joshwa\source\repos\CMS\CMS.DataAccessLayer\bin\Debug\net6.0\CMS.DataAccessLayer.runtimeconfig.json
+C:\Users\Ian Joshwa\source\repos\CMS\CMS.DataAccessLayer\obj\Debug\net6.0\CMS.DataAccessLayer.genruntimeconfig.cache

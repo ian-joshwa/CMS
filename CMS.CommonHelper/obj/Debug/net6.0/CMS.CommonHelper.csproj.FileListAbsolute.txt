@@ -1,0 +1,12 @@
+C:\Users\Ian Joshwa\source\repos\CMS\CMS.CommonHelper\bin\Debug\net6.0\CMS.CommonHelper.deps.json
+C:\Users\Ian Joshwa\source\repos\CMS\CMS.CommonHelper\bin\Debug\net6.0\CMS.CommonHelper.dll
+C:\Users\Ian Joshwa\source\repos\CMS\CMS.CommonHelper\bin\Debug\net6.0\CMS.CommonHelper.pdb
+C:\Users\Ian Joshwa\source\repos\CMS\CMS.CommonHelper\obj\Debug\net6.0\CMS.CommonHelper.csproj.AssemblyReference.cache
+C:\Users\Ian Joshwa\source\repos\CMS\CMS.CommonHelper\obj\Debug\net6.0\CMS.CommonHelper.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ian Joshwa\source\repos\CMS\CMS.CommonHelper\obj\Debug\net6.0\CMS.CommonHelper.AssemblyInfoInputs.cache
+C:\Users\Ian Joshwa\source\repos\CMS\CMS.CommonHelper\obj\Debug\net6.0\CMS.CommonHelper.AssemblyInfo.cs
+C:\Users\Ian Joshwa\source\repos\CMS\CMS.CommonHelper\obj\Debug\net6.0\CMS.CommonHelper.csproj.CoreCompileInputs.cache
+C:\Users\Ian Joshwa\source\repos\CMS\CMS.CommonHelper\obj\Debug\net6.0\CMS.CommonHelper.dll
+C:\Users\Ian Joshwa\source\repos\CMS\CMS.CommonHelper\obj\Debug\net6.0\refint\CMS.CommonHelper.dll
+C:\Users\Ian Joshwa\source\repos\CMS\CMS.CommonHelper\obj\Debug\net6.0\CMS.CommonHelper.pdb
+C:\Users\Ian Joshwa\source\repos\CMS\CMS.CommonHelper\obj\Debug\net6.0\ref\CMS.CommonHelper.dll
