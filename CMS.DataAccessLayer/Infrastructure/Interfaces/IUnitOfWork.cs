@@ -10,6 +10,10 @@ namespace CMS.DataAccessLayer.Infrastructure.Interfaces
     {
         ISessionAppService SessionAppService { get; }
         ICourseAppService CourseAppService { get; }
+
+        IDepartmentAppService DepartmentAppService { get; }
+
+        IInstructorAppService InstructorAppService { get; }
         Task<bool> Save();
     }
 }

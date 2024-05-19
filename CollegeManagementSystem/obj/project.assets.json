@@ -11152,19 +11152,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Ian Joshwa\\.nuget\\packages\\": {}
+    "C:\\Users\\Owais\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Ian Joshwa\\source\\repos\\CMS\\CollegeManagementSystem\\CollegeManagementSystem.csproj",
+      "projectUniqueName": "C:\\Users\\Owais\\source\\repos\\CMS\\CollegeManagementSystem\\CollegeManagementSystem.csproj",
       "projectName": "CollegeManagementSystem",
-      "projectPath": "C:\\Users\\Ian Joshwa\\source\\repos\\CMS\\CollegeManagementSystem\\CollegeManagementSystem.csproj",
-      "packagesPath": "C:\\Users\\Ian Joshwa\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Ian Joshwa\\source\\repos\\CMS\\CollegeManagementSystem\\obj\\",
+      "projectPath": "C:\\Users\\Owais\\source\\repos\\CMS\\CollegeManagementSystem\\CollegeManagementSystem.csproj",
+      "packagesPath": "C:\\Users\\Owais\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Owais\\source\\repos\\CMS\\CollegeManagementSystem\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Ian Joshwa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Owais\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -11172,21 +11172,20 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\sdk\\7.0.306\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\Ian Joshwa\\source\\repos\\CMS\\CMS.CommonHelper\\CMS.CommonHelper.csproj": {
-              "projectPath": "C:\\Users\\Ian Joshwa\\source\\repos\\CMS\\CMS.CommonHelper\\CMS.CommonHelper.csproj"
+            "C:\\Users\\Owais\\source\\repos\\CMS\\CMS.CommonHelper\\CMS.CommonHelper.csproj": {
+              "projectPath": "C:\\Users\\Owais\\source\\repos\\CMS\\CMS.CommonHelper\\CMS.CommonHelper.csproj"
             },
-            "C:\\Users\\Ian Joshwa\\source\\repos\\CMS\\CMS.DataAccessLayer\\CMS.DataAccessLayer.csproj": {
-              "projectPath": "C:\\Users\\Ian Joshwa\\source\\repos\\CMS\\CMS.DataAccessLayer\\CMS.DataAccessLayer.csproj"
+            "C:\\Users\\Owais\\source\\repos\\CMS\\CMS.DataAccessLayer\\CMS.DataAccessLayer.csproj": {
+              "projectPath": "C:\\Users\\Owais\\source\\repos\\CMS\\CMS.DataAccessLayer\\CMS.DataAccessLayer.csproj"
             },
-            "C:\\Users\\Ian Joshwa\\source\\repos\\CMS\\CMS.Models\\CMS.Models.csproj": {
-              "projectPath": "C:\\Users\\Ian Joshwa\\source\\repos\\CMS\\CMS.Models\\CMS.Models.csproj"
+            "C:\\Users\\Owais\\source\\repos\\CMS\\CMS.Models\\CMS.Models.csproj": {
+              "projectPath": "C:\\Users\\Owais\\source\\repos\\CMS\\CMS.Models\\CMS.Models.csproj"
             }
           }
         }
@@ -11195,6 +11194,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -11235,6 +11239,24 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[6.0.29, 6.0.29]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[6.0.29, 6.0.29]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[6.0.29, 6.0.29]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[6.0.29, 6.0.29]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -11243,7 +11265,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
       }
     }
   }

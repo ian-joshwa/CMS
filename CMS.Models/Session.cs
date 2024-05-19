@@ -10,7 +10,7 @@ namespace CMS.Models
     public class Session
     {
         [Key]
-        public int SessionId { get; set; }
+        public int Id { get; set; }
 
         public string SessionName { get; set; }
 

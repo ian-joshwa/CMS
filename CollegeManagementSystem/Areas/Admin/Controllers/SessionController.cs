@@ -67,7 +67,7 @@ namespace CollegeManagementSystem.Areas.Admin.Controllers
         public IActionResult Update(int id)
         {
 
-            var session = _unitOfWork.SessionAppService.Get(x => x.SessionId == id);
+            var session = _unitOfWork.SessionAppService.Get(x => x.Id == id);
             return View(session);
         }
 
@@ -99,7 +99,7 @@ namespace CollegeManagementSystem.Areas.Admin.Controllers
         public async Task<JsonResult> Delete(int id)
         {
 
-            var session = _unitOfWork.SessionAppService.Get(x => x.SessionId == id);
+            var session = _unitOfWork.SessionAppService.Get(x => x.Id == id);
             _unitOfWork.SessionAppService.Delete(session);
             var result = await _unitOfWork.Save();
             if (result)

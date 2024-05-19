@@ -20,7 +20,7 @@ namespace CMS.DataAccessLayer.Infrastructure.Services
 
         public void Update(Session session)
         {
-            var ss = _context.Sessions.Where(x => x.SessionId == session.SessionId).FirstOrDefault();
+            var ss = _context.Sessions.Where(x => x.Id == session.Id).FirstOrDefault();
             if (ss != null)
             {
                 ss.SessionName = session.SessionName;

@@ -15,11 +15,17 @@ namespace CMS.DataAccessLayer.Infrastructure.Services
         public ISessionAppService SessionAppService { get; private set; }
         public ICourseAppService CourseAppService { get; private set; }
 
+        public IDepartmentAppService DepartmentAppService { get; private set; }
+
+        public IInstructorAppService InstructorAppService { get; private set; }
+
         public UnitOfWork(ApplicationDbContext context)
         {
             _context = context;
             SessionAppService = new SessionAppService(context);
             CourseAppService = new CourseAppService(context);
+            DepartmentAppService = new DepartmentAppService(context);
+            InstructorAppService = new InstructorAppService(context);
         }
 
         public async Task<bool> Save()

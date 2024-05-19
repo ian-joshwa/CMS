@@ -10,3 +10,16 @@ C:\Users\Ian Joshwa\source\repos\CMS\CMS.Models\obj\Debug\net6.0\CMS.Models.dll
 C:\Users\Ian Joshwa\source\repos\CMS\CMS.Models\obj\Debug\net6.0\refint\CMS.Models.dll
 C:\Users\Ian Joshwa\source\repos\CMS\CMS.Models\obj\Debug\net6.0\CMS.Models.pdb
 C:\Users\Ian Joshwa\source\repos\CMS\CMS.Models\obj\Debug\net6.0\ref\CMS.Models.dll
+C:\Users\Owais\source\repos\CMS\CMS.Models\bin\Debug\net6.0\CMS.Models.deps.json
+C:\Users\Owais\source\repos\CMS\CMS.Models\bin\Debug\net6.0\CMS.Models.dll
+C:\Users\Owais\source\repos\CMS\CMS.Models\bin\Debug\net6.0\CMS.Models.pdb
+C:\Users\Owais\source\repos\CMS\CMS.Models\obj\Debug\net6.0\CMS.Models.csproj.AssemblyReference.cache
+C:\Users\Owais\source\repos\CMS\CMS.Models\obj\Debug\net6.0\CMS.Models.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Owais\source\repos\CMS\CMS.Models\obj\Debug\net6.0\CMS.Models.AssemblyInfoInputs.cache
+C:\Users\Owais\source\repos\CMS\CMS.Models\obj\Debug\net6.0\CMS.Models.AssemblyInfo.cs
+C:\Users\Owais\source\repos\CMS\CMS.Models\obj\Debug\net6.0\CMS.Models.csproj.CoreCompileInputs.cache
+C:\Users\Owais\source\repos\CMS\CMS.Models\obj\Debug\net6.0\CMS.Models.sourcelink.json
+C:\Users\Owais\source\repos\CMS\CMS.Models\obj\Debug\net6.0\CMS.Models.dll
+C:\Users\Owais\source\repos\CMS\CMS.Models\obj\Debug\net6.0\refint\CMS.Models.dll
+C:\Users\Owais\source\repos\CMS\CMS.Models\obj\Debug\net6.0\CMS.Models.pdb
+C:\Users\Owais\source\repos\CMS\CMS.Models\obj\Debug\net6.0\ref\CMS.Models.dll

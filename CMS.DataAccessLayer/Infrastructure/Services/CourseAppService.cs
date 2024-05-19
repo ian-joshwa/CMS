@@ -25,6 +25,8 @@ namespace CMS.DataAccessLayer.Infrastructure.Services
             {
                 cc.Name = course.Name;
                 cc.CreditHours = course.CreditHours;
+                cc.SessionId = course.SessionId;
+                //cc.InstructorId = course.InstructorId;
                 _context.Courses.Update(cc);
             }
         }
