@@ -23,6 +23,10 @@
                 <input asp-for="Name" class="form-control" />
                 <span asp-validation-for="Name"></span>
 
+               @*  <label asp-for="Name"> Name</label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name"></span> *@
+
                 <label asp-for="DepartmentId" class="mt-3">Department</label>
                 <select asp-for="DepartmentId" asp-items="@ViewBag.Departmentlist" class="form-control">
                     <option selected disabled>-- Select Department --</option>

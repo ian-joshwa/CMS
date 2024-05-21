@@ -19,6 +19,14 @@ namespace CMS.DataAccessLayer.Infrastructure.Services
 
         public IInstructorAppService InstructorAppService { get; private set; }
 
+        public IEnrollementAppService EnrollementAppService { get; private set; }
+
+        public IFeesAppService FeesAppService { get; private set; }
+
+        public IExaminationAppService ExaminationAppService { get; private set; }
+
+        //public IResultAppService ResultAppService { get; private set; }
+
         public UnitOfWork(ApplicationDbContext context)
         {
             _context = context;
@@ -26,6 +34,9 @@ namespace CMS.DataAccessLayer.Infrastructure.Services
             CourseAppService = new CourseAppService(context);
             DepartmentAppService = new DepartmentAppService(context);
             InstructorAppService = new InstructorAppService(context);
+            EnrollementAppService = new EnrollementAppService(context);
+            //ResultAppService = new 
+            FeesAppService = new  FeesAppService(context);
         }
 
         public async Task<bool> Save()

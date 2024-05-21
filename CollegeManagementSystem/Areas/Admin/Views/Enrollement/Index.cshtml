@@ -1,16 +1,16 @@
 ﻿@{
-    ViewData["Title"] = "Department";
+    ViewData["Title"] = "Enrollement";
 }
 
 <div>
 
     <div class="row mb-4">
         <div class="col-6">
-            <h2 class="m-0">Department</h2>
+            <h2 class="m-0">Enrollements</h2>
         </div>
 
         <div class="col-6">
-            <a asp-area="Admin" asp-controller="Department" asp-action="Create" class="btn btn-primary">Add Department </a>
+            <a asp-area="Admin" asp-controller="Enrollement" asp-action="Create" class="btn btn-primary">Add Enrollement</a>
         </div>
     </div>
 
@@ -18,12 +18,12 @@
 
         <div class="col-12">
 
-            <table class="table table-bordered" id="DepartmentTable">
+            <table class="table table-bordered" id="EnrollementTable">
 
                 <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>HOD</th>
+                        <th>Student</th>
+                        <th>Session</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -40,23 +40,28 @@
 
     <script>
 
-        let DepartmentTable;
+        let EnrollementTable;
 
-        DepartmentTable = $('#DepartmentTable').DataTable({
+        EnrollementTable = $('#EnrollementTable').DataTable({
 
             "ajax": {
-                "url": "/Admin/Department/GetDepartments"
+                "url": "/Admin/Enrollement/GetEnrollements"
             },
             "columns": [
 
                 { "data": "name" },
-                 
+                {
+                    "data": "creditHours"
+                },
+                {
+                    "data": "session.sessionName"
+                },
                 {
                     "data": "id",
                     "render": function (data) {
                         return `
-                               <a class="btn btn-primary" href="/Admin/Department/Update?id=${data}">Edit</a>
-                               <a class="btn btn-danger" onclick=RemoveDepartment("/Admin/Department/Delete/${data}")>Delete</a>
+                                                <a class="btn btn-primary" href="/Admin/Enrollement/Update?id=${data}">Edit</a>
+                                                        <a class="btn btn-danger" onclick=RemoveEnrollement("/Admin/Enrollement/Delete/${data}")>Delete</a>
                                     `
                     }
                 }
@@ -67,7 +72,7 @@
         });
 
 
-        function RemoveDepartment(url) {
+        function RemoveCourse(url) {
 
             Swal.fire({
                 title: "Are you sure?",
@@ -90,7 +95,7 @@
                             var result = JSON.parse(xmlHttp.responseText);
 
                             if (result.result) {
-                                DepartmentTable.ajax.reload();
+                                EnrollementTable.ajax.reload();
                                 toastr.success(result.message);
                             }
                             else {

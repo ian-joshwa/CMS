@@ -29,6 +29,7 @@ namespace CMS.DataAccessLayer.Infrastructure.Services
             if (ss != null)
             {
                 ss.Name = department.Name;
+                ss.HOD=department.HOD;
                 
                 _context.Departments.Update(ss);
             }

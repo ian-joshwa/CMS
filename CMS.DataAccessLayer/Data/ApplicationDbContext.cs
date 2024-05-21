@@ -21,7 +21,12 @@ namespace CMS.DataAccessLayer.Data
 
         public DbSet<Department> Departments { get; set; }
 
-        public DbSet<Instructor> instructors { get; set; }
+        public DbSet<Instructor> Instructors { get; set; }
+        public DbSet<Enrollement> Enrollements { get; set; }
+        public DbSet<Fees> Fees { get; set; }
 
+        public DbSet<Examination> Examinations { get; set; }
+
+        //public DbSet<Result> Results { get; set; }
     }
 }

@@ -7,23 +7,19 @@ using System.Threading.Tasks;
 
 namespace CMS.Models
 {
-    public class Fees
+    public class Result
     {
         [Key]
         public int Id { get; set; }
-        public StudentRegistration? StudentRegistration { get; set; }
+        public StudentRegistration StudentRegistration { get; set; }
 
         public int StudentRegistrationId { get; set; }
 
-        public int Amount { get; set; }
+        public Examination? Examination { get; set; }
 
-        public DateTime DueDate { get; set; }
+        public int ExaminationId { get; set; }
 
-        public DateTime PaidDate { get; set; }
-
-        public string Status { get; set; }
-
-
+        public int Marks { get; set; }
 
     }
 }

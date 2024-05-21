@@ -25,6 +25,7 @@ namespace CMS.DataAccessLayer.Infrastructure.Services
             {
                 ss.SessionName = session.SessionName;
                 ss.Description = session.Description;
+                //ss.DepartmentId= session.DepartmentId;
                 ss.StartTime = session.StartTime;
                 ss.EndTime = session.EndTime;
                 ss.Capacity = session.Capacity;

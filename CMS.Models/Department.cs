@@ -14,5 +14,9 @@ namespace CMS.Models
 
         public string Name { get; set;}
 
+        public string HOD { get; set; }
+
+
+
     }
 }

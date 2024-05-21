@@ -14,6 +14,15 @@ namespace CMS.DataAccessLayer.Infrastructure.Interfaces
         IDepartmentAppService DepartmentAppService { get; }
 
         IInstructorAppService InstructorAppService { get; }
+
+        IEnrollementAppService EnrollementAppService { get; }
+
+        IFeesAppService FeesAppService { get; }
+
+        IExaminationAppService ExaminationAppService { get; }
+
+        //IResultAppService ResultAppService { get; }
+
         Task<bool> Save();
     }
 }

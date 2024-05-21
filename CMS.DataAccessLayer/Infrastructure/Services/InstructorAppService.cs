@@ -20,12 +20,16 @@ namespace CMS.DataAccessLayer.Infrastructure.Services
 
         public void Update(Instructor instructor)
         {
-            var ii = _context.instructors.Where(x => x.Id == instructor.Id).FirstOrDefault();
+            var ii = _context.Instructors.Where(x => x.Id == instructor.Id).FirstOrDefault();
             if (ii != null)
             {
                 ii.Name = instructor.Name;
-                ii.Department = instructor.Department;
-                _context.instructors.Update(ii);
+                ii.DepartmentId = instructor.DepartmentId;
+                ii.DOB = instructor.DOB;
+                ii.HiredDate = instructor.HiredDate;
+                ii.Gender = instructor.Gender;
+
+                _context.Instructors.Update(ii);
             }
         }
     }
