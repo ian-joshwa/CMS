@@ -21,6 +21,8 @@ namespace CMS.DataAccessLayer.Infrastructure.Interfaces
 
         IExaminationAppService ExaminationAppService { get; }
 
+        IStudentRegistrationAppService StudentRegistrationAppService { get; }
+
         //IResultAppService ResultAppService { get; }
 
         Task<bool> Save();

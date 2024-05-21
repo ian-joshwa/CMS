@@ -26,6 +26,7 @@ namespace CMS.DataAccessLayer.Data
         public DbSet<Fees> Fees { get; set; }
 
         public DbSet<Examination> Examinations { get; set; }
+        public DbSet<StudentRegistration> StudentRegistrations { get; set; }
 
         //public DbSet<Result> Results { get; set; }
     }

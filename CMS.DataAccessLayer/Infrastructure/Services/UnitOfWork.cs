@@ -25,6 +25,8 @@ namespace CMS.DataAccessLayer.Infrastructure.Services
 
         public IExaminationAppService ExaminationAppService { get; private set; }
 
+        public IStudentRegistrationAppService StudentRegistrationAppService { get; private set; }
+
         //public IResultAppService ResultAppService { get; private set; }
 
         public UnitOfWork(ApplicationDbContext context)
@@ -35,6 +37,7 @@ namespace CMS.DataAccessLayer.Infrastructure.Services
             DepartmentAppService = new DepartmentAppService(context);
             InstructorAppService = new InstructorAppService(context);
             EnrollementAppService = new EnrollementAppService(context);
+            StudentRegistrationAppService = new StudentRegistrationAppService(context);
             //ResultAppService = new 
             FeesAppService = new  FeesAppService(context);
         }

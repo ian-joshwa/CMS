@@ -11,6 +11,7 @@ using System.Text.Encodings.Web;
 using System.Threading;
 using System.Threading.Tasks;
 using CMS.CommonHelper;
+using CMS.DataAccessLayer.Infrastructure.Interfaces;
 using CMS.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
@@ -32,6 +33,7 @@ namespace CollegeManagementSystem.Areas.Identity.Pages.Account
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
+        private readonly IUnitOfWork _unitOfWork;
 
         public RegisterModel(
             UserManager<ApplicationUser> userManager,
@@ -39,7 +41,8 @@ namespace CollegeManagementSystem.Areas.Identity.Pages.Account
             SignInManager<ApplicationUser> signInManager,
             ILogger<RegisterModel> logger,
             IEmailSender emailSender,
-            RoleManager<IdentityRole> roleManager)
+            RoleManager<IdentityRole> roleManager,
+            IUnitOfWork unitOfWork)
         {
             _userManager = userManager;
             _userStore = userStore;
@@ -48,6 +51,7 @@ namespace CollegeManagementSystem.Areas.Identity.Pages.Account
             _logger = logger;
             _emailSender = emailSender;
             _roleManager = roleManager;
+            _unitOfWork = unitOfWork;
         }
 
         /// <summary>
@@ -104,6 +108,19 @@ namespace CollegeManagementSystem.Areas.Identity.Pages.Account
             public string ConfirmPassword { get; set; }
             public string FirstName { get; set; }
             public string LastName { get; set; }
+
+            [Required]
+            public DateTime DOB { get; set; }
+            [Required]
+            public long CNIC { get; set; }
+            [Required]
+            public string Gender { get; set; }
+            [Required]
+            public string Address { get; set; }
+            [Required]
+            public int PhoneNumber { get; set; }
+            [Required]
+            public int Age { get; set; }
         }
 
 
@@ -144,10 +161,26 @@ namespace CollegeManagementSystem.Areas.Identity.Pages.Account
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
                 var result = await _userManager.CreateAsync(user, Input.Password);
 
+                var Student = new StudentRegistration();
+
+                Student.PhoneNumber = Input.PhoneNumber;
+                Student.Address = Input.Address;
+                Student.DOB = Input.DOB;
+                Student.CNIC = Input.CNIC;
+                Student.Age = Input.Age;
+                Student.Gender = Input.Gender;
+
                 if (result.Succeeded)
                 {
                     await _userManager.AddToRoleAsync(user, WebsiteRoles.Role_Student);
                     _logger.LogInformation("User created a new account with password.");
+
+                    var usr = await _userManager.FindByEmailAsync(Input.Email);
+
+                    Student.ApplicationUserId = usr.Id;
+
+                    _unitOfWork.StudentRegistrationAppService.Add(Student);
+                    bool check = await _unitOfWork.Save();
 
                     var userId = await _userManager.GetUserIdAsync(user);
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);

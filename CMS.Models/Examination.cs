@@ -16,9 +16,9 @@ namespace CMS.Models
 
         public DateTime ExamDate { get; set; }
 
-        public Session? Session { get; set; }
+        //public Session? Session { get; set; }
 
-        public int SessionId { get; set; }
+        //public int SessionId { get; set; }
 
         public Course? Course { get; set; }
 

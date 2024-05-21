@@ -26,7 +26,7 @@ namespace CMS.DataAccessLayer.Infrastructure.Services
                 ss.ExamName = examination.ExamName;
                 ss.ExamDate = examination.ExamDate;
                 //ss.DepartmentId= session.DepartmentId;
-                ss.SessionId = examination.SessionId;
+                //ss.SessionId = examination.SessionId;
                 ss.CourseId = examination.CourseId;
                 ss.TotalMarks = examination.TotalMarks;
                 ss.Duration = examination.Duration;
