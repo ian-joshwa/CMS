@@ -17,7 +17,7 @@ namespace CMS.Models
         public Department? Department { get; set; }
         public int DepartmentId { get; set; }
 
-        public int DOB { get; set; }
+        public DateTime DOB { get; set; }
 
 
         public DateTime HiredDate { get; set; }

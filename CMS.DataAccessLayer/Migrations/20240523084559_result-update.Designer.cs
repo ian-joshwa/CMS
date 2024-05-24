@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CMS.DataAccessLayer.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240521202125_student_new")]
-    partial class student_new
+    [Migration("20240523084559_result-update")]
+    partial class resultupdate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -237,8 +237,8 @@ namespace CMS.DataAccessLayer.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("DOB")
-                        .HasColumnType("int");
+                    b.Property<DateTime>("DOB")
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("DepartmentId")
                         .HasColumnType("int");
@@ -259,6 +259,32 @@ namespace CMS.DataAccessLayer.Migrations
                     b.HasIndex("DepartmentId");
 
                     b.ToTable("Instructors");
+                });
+
+            modelBuilder.Entity("CMS.Models.Result", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("ExaminationId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Marks")
+                        .HasColumnType("int");
+
+                    b.Property<int>("StudentRegistrationId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ExaminationId");
+
+                    b.HasIndex("StudentRegistrationId");
+
+                    b.ToTable("Results");
                 });
 
             modelBuilder.Entity("CMS.Models.Session", b =>
@@ -317,8 +343,9 @@ namespace CMS.DataAccessLayer.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("CNIC")
-                        .HasColumnType("int");
+                    b.Property<string>("CNIC")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("DOB")
                         .HasColumnType("datetime2");
@@ -327,8 +354,9 @@ namespace CMS.DataAccessLayer.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("PhoneNumber")
-                        .HasColumnType("int");
+                    b.Property<string>("PhoneNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -531,6 +559,25 @@ namespace CMS.DataAccessLayer.Migrations
                         .IsRequired();
 
                     b.Navigation("Department");
+                });
+
+            modelBuilder.Entity("CMS.Models.Result", b =>
+                {
+                    b.HasOne("CMS.Models.Examination", "Examination")
+                        .WithMany()
+                        .HasForeignKey("ExaminationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CMS.Models.StudentRegistration", "StudentRegistration")
+                        .WithMany()
+                        .HasForeignKey("StudentRegistrationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Examination");
+
+                    b.Navigation("StudentRegistration");
                 });
 
             modelBuilder.Entity("CMS.Models.StudentRegistration", b =>

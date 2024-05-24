@@ -11,7 +11,7 @@ namespace CMS.Models
     {
         [Key]
         public int Id { get; set; }
-        public StudentRegistration StudentRegistration { get; set; }
+        public StudentRegistration? StudentRegistration { get; set; }
 
         public int StudentRegistrationId { get; set; }
 

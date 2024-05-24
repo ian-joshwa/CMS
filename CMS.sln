@@ -5,11 +5,11 @@ VisualStudioVersion = 17.6.33829.357
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CollegeManagementSystem", "CollegeManagementSystem\CollegeManagementSystem.csproj", "{5522D1EC-36DE-4DE2-A86C-E834601ED67F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMS.Models", "CMS.Models\CMS.Models.csproj", "{E98B58BB-0545-4114-983C-1DAA11C2871A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CMS.Models", "CMS.Models\CMS.Models.csproj", "{E98B58BB-0545-4114-983C-1DAA11C2871A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMS.DataAccessLayer", "CMS.DataAccessLayer\CMS.DataAccessLayer.csproj", "{2C81497A-73CF-4415-A9E4-6D65253D3290}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CMS.DataAccessLayer", "CMS.DataAccessLayer\CMS.DataAccessLayer.csproj", "{2C81497A-73CF-4415-A9E4-6D65253D3290}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMS.CommonHelper", "CMS.CommonHelper\CMS.CommonHelper.csproj", "{127CF69B-31DF-40A7-82B0-D9B2EB7C2D17}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CMS.CommonHelper", "CMS.CommonHelper\CMS.CommonHelper.csproj", "{127CF69B-31DF-40A7-82B0-D9B2EB7C2D17}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

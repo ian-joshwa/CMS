@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CMS.CommonHelper")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d7fff53b7678684bc7bc58b9384dd76ed2ffe5ba")]
 [assembly: System.Reflection.AssemblyProductAttribute("CMS.CommonHelper")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CMS.CommonHelper")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

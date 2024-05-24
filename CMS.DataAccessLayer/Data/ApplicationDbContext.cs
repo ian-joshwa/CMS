@@ -28,6 +28,6 @@ namespace CMS.DataAccessLayer.Data
         public DbSet<Examination> Examinations { get; set; }
         public DbSet<StudentRegistration> StudentRegistrations { get; set; }
 
-        //public DbSet<Result> Results { get; set; }
+        public DbSet<Result> Results { get; set; }
     }
 }

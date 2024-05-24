@@ -18,6 +18,10 @@ namespace CMS.DataAccessLayer.Infrastructure.Services
         {
             _context = context;
         }
+        public IQueryable<Enrollement> GetEnrollementList()
+        {
+            return _context.Enrollements.AsQueryable();
+        }
 
         public void Update(Enrollement enrollement)
         {

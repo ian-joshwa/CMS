@@ -17,8 +17,19 @@ namespace CollegeManagementSystem.Areas.Admin.Controllers
 
         public IActionResult GetFees()
         {
+            var studentRegistration = _unitOfWork.StudentRegistrationAppService.GetAll(includeProperties: "ApplicationUser");
+
+
             var fe = _unitOfWork.FeesAppService.GetAll();
-            return Json(new { data = fe });
+            List<Fees> list = new List<Fees>();
+            foreach(var fee in fe)
+            {
+                var reg = studentRegistration.Where(x => x.Id == fee.StudentRegistrationId).FirstOrDefault();
+                fee.StudentRegistration = reg;
+                list.Add(fee);
+            }
+
+            return Json(new { data = list });
         }
 
 
@@ -31,15 +42,15 @@ namespace CollegeManagementSystem.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            var sessionList = _unitOfWork.SessionAppService.GetAll();
+            var studentList = _unitOfWork.StudentRegistrationAppService.GetAll(includeProperties:"ApplicationUser");
             List<SelectListItem> list = new List<SelectListItem>();
-            foreach (var item in sessionList)
+            foreach (var item in studentList)
             {
-                list.Add(new SelectListItem { Text = item.SessionName, Value = item.Id.ToString() });
+                list.Add(new SelectListItem { Text = $"{item.ApplicationUser.FirstName} {item.ApplicationUser.LastName}", Value = item.Id.ToString() });
 
 
             }
-            ViewBag.Sessionlist = list;
+            ViewBag.StudentRegistrationList = list;
             return View();
 
 
@@ -47,53 +58,54 @@ namespace CollegeManagementSystem.Areas.Admin.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> Create(Course cc)
+        public async Task<IActionResult> Create(Fees fe)
         {
 
             if (ModelState.IsValid)
             {
 
-                _unitOfWork.CourseAppService.Add(cc);
+                _unitOfWork.FeesAppService.Add(fe);
                 var result = await _unitOfWork.Save();
                 if (result)
                 {
-                    TempData["success"] = "Course Added Successfully";
+                    TempData["success"] = "Fees Added Successfully";
                     return View("Index");
                 }
                 else
                 {
                     TempData["info"] = "Something Went Wrong";
-                    return View(cc);
+                    return View(fe);
                 }
             }
 
-            return View(cc);
+            return View(fe);
         }
 
         [HttpGet]
         public IActionResult Update(int id)
         {
-
-            var cource = _unitOfWork.CourseAppService.Get(x => x.Id == id);
-            var sessionList = _unitOfWork.SessionAppService.GetAll();
+            var fe = _unitOfWork.FeesAppService.Get(x => x.Id == id);
+            var studentList = _unitOfWork.StudentRegistrationAppService.GetAll(includeProperties: "ApplicationUser");
             List<SelectListItem> list = new List<SelectListItem>();
-            foreach (var item in sessionList)
+            foreach (var item in studentList)
             {
-                list.Add(new SelectListItem { Text = item.SessionName, Value = item.Id.ToString() });
+                list.Add(new SelectListItem { Text = $"{item.ApplicationUser.FirstName} {item.ApplicationUser.LastName}", Value = item.Id.ToString() });
+
+
             }
-            ViewBag.SessionList = list;
-            return View(cource);
+            ViewBag.StudentRegistrationList = list;
+            return View(fe);
 
         }
 
         [HttpPost]
-        public async Task<IActionResult> Update(Course ss)
+        public async Task<IActionResult> Update(Fees ss)
         {
 
             if (ModelState.IsValid)
             {
 
-                _unitOfWork.CourseAppService.Update(ss);
+                _unitOfWork.FeesAppService.Update(ss);
                 var result = await _unitOfWork.Save();
                 if (result)
                 {
@@ -114,8 +126,8 @@ namespace CollegeManagementSystem.Areas.Admin.Controllers
         public async Task<JsonResult> Delete(int id)
         {
 
-            var cource = _unitOfWork.CourseAppService.Get(x => x.Id == id);
-            _unitOfWork.CourseAppService.Delete(cource);
+            var cource = _unitOfWork.FeesAppService.Get(x => x.Id == id);
+            _unitOfWork.FeesAppService.Delete(cource);
             var result = await _unitOfWork.Save();
             if (result)
             {

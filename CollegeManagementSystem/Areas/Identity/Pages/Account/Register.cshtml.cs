@@ -112,13 +112,13 @@ namespace CollegeManagementSystem.Areas.Identity.Pages.Account
             [Required]
             public DateTime DOB { get; set; }
             [Required]
-            public long CNIC { get; set; }
+            public string CNIC { get; set; }
             [Required]
             public string Gender { get; set; }
             [Required]
             public string Address { get; set; }
             [Required]
-            public int PhoneNumber { get; set; }
+            public string PhoneNumber { get; set; }
             [Required]
             public int Age { get; set; }
         }

@@ -49,9 +49,12 @@
             },
             "columns": [
 
-                { "data": "name" },
+
                 {
-                    "data": "creditHours"
+                    "data": "studentRegistration.applicationUser",
+                    "render": function (data) {
+                        return `${data.firstName} ${data.lastName}`;
+                    }
                 },
                 {
                     "data": "session.sessionName"
@@ -60,9 +63,9 @@
                     "data": "id",
                     "render": function (data) {
                         return `
-                                                <a class="btn btn-primary" href="/Admin/Enrollement/Update?id=${data}">Edit</a>
-                                                        <a class="btn btn-danger" onclick=RemoveEnrollement("/Admin/Enrollement/Delete/${data}")>Delete</a>
-                                    `
+                                <a class="btn btn-primary" href="/Admin/Enrollement/Update?id=${data}">Edit</a>
+                                <a class="btn btn-danger" onclick=RemoveEnrollement("/Admin/Enrollement/Delete/${data}")>Delete</a>
+                            `
                     }
                 }
 
@@ -72,7 +75,7 @@
         });
 
 
-        function RemoveCourse(url) {
+        function RemoveEnrollement(url) {
 
             Swal.fire({
                 title: "Are you sure?",

@@ -2,6 +2,7 @@
 using CMS.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 
 namespace CollegeManagementSystem.Areas.Admin.Controllers
 {
@@ -17,8 +18,8 @@ namespace CollegeManagementSystem.Areas.Admin.Controllers
 
         public IActionResult GetEnrollements()
         {
-            var ent = _unitOfWork.EnrollementAppService.GetAll();
-            return Json(new { data = ent });
+            var enrollementList = _unitOfWork.EnrollementAppService.GetEnrollementList().Include(x =>x.Session).Include(x => x.StudentRegistration).Include("StudentRegistration.ApplicationUser").ToList();
+            return Json(new { data = enrollementList });
         }
         [HttpGet]
         public IActionResult Index()
@@ -28,6 +29,25 @@ namespace CollegeManagementSystem.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult Create()
         {
+            var studentList = _unitOfWork.StudentRegistrationAppService.GetAll(includeProperties: "ApplicationUser");
+            List<SelectListItem> list = new List<SelectListItem>();
+            foreach (var item in studentList)
+            {
+                list.Add(new SelectListItem { Text = $"{item.ApplicationUser.FirstName} {item.ApplicationUser.LastName}", Value = item.Id.ToString() });
+
+
+            }
+            ViewBag.StudentRegistrationList = list;
+
+            var sessionList = _unitOfWork.SessionAppService.GetAll();
+            List<SelectListItem> List = new List<SelectListItem>();
+            foreach (var item in sessionList)
+            {
+                List.Add(new SelectListItem { Text = item.SessionName, Value = item.Id.ToString() });
+
+
+            }
+            ViewBag.Sessionlist = List;
             return View();
         }
 
@@ -55,20 +75,32 @@ namespace CollegeManagementSystem.Areas.Admin.Controllers
             return View(enrollement);
         }
         [HttpGet]
-        //public IActionResult Update(int id)
-        //{
+        public IActionResult Update(int id)
+        {
+            var fe = _unitOfWork.EnrollementAppService.Get(x => x.Id == id);
+            var studentList = _unitOfWork.StudentRegistrationAppService.GetAll(includeProperties: "ApplicationUser");
+            List<SelectListItem> list = new List<SelectListItem>();
+            foreach (var item in studentList)
+            {
+                list.Add(new SelectListItem { Text = $"{item.ApplicationUser.FirstName} {item.ApplicationUser.LastName}", Value = item.Id.ToString() });
 
-        //    var cource = _unitOfWork.EnrollementAppService.Get(x => x.Id == id);
-        //    //var sessionList = _unitOfWork.SessionAppService.GetAll();
-        //    List<SelectListItem> list = new List<SelectListItem>();
-        //    foreach (var item in sessionList)
-        //    {
-        //        list.Add(new SelectListItem { Text = item.SessionName, Value = item.Id.ToString() });
-        //    }
-        //    ViewBag.SessionList = list;
-        //    return View(cource);
 
-        //}
+            }
+            ViewBag.StudentRegistrationList = list;
+
+            var sessionList = _unitOfWork.SessionAppService.GetAll();
+            List<SelectListItem> List = new List<SelectListItem>();
+            foreach (var item in sessionList)
+            {
+                List.Add(new SelectListItem { Text = item.SessionName, Value = item.Id.ToString() });
+
+
+            }
+            ViewBag.Sessionlist = List;
+            var enrollement = _unitOfWork.EnrollementAppService.Get(x => x.Id == id);
+            return View(enrollement);
+
+        }
 
         [HttpPost]
         public async Task<IActionResult> Update(Enrollement enrollement)

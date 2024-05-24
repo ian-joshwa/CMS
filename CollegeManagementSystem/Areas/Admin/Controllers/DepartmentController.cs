@@ -80,7 +80,7 @@ namespace CollegeManagementSystem.Areas.Admin.Controllers
                 var result = await _unitOfWork.Save();
                 if (result)
                 {
-                    TempData["success"] = "Session Updated Successfully";
+                    TempData["success"] = "Department Updated Successfully";
                     return View("Index");
                 }
                 else

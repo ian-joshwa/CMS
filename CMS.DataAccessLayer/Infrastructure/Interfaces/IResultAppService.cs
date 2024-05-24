@@ -10,6 +10,7 @@ namespace CMS.DataAccessLayer.Infrastructure.Interfaces
     public interface IResultAppService : IAppService<Result>
     {
         void Update(Result result);
-
+        IQueryable<Result> GetResultList();
+        //object GetEnrollementList();
     }
 }

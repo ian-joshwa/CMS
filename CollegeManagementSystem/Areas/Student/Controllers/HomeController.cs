@@ -6,6 +6,7 @@ using System.Diagnostics;
 
 namespace CollegeManagementSystem.Areas.Student.Controllers
 {
+    [Authorize]
     [Area("Student")]
     public class HomeController : Controller
     {

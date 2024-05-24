@@ -27,7 +27,7 @@ namespace CMS.DataAccessLayer.Infrastructure.Services
 
         public IStudentRegistrationAppService StudentRegistrationAppService { get; private set; }
 
-        //public IResultAppService ResultAppService { get; private set; }
+        public IResultAppService ResultAppService { get; private set; }
 
         public UnitOfWork(ApplicationDbContext context)
         {
@@ -38,8 +38,9 @@ namespace CMS.DataAccessLayer.Infrastructure.Services
             InstructorAppService = new InstructorAppService(context);
             EnrollementAppService = new EnrollementAppService(context);
             StudentRegistrationAppService = new StudentRegistrationAppService(context);
-            //ResultAppService = new 
+            ResultAppService = new ResultAppService(context);
             FeesAppService = new  FeesAppService(context);
+            ExaminationAppService = new ExaminationAppService(context);
         }
 
         public async Task<bool> Save()

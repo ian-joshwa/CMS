@@ -1,112 +1,59 @@
+/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
 
-:root {
-    --bg-color: #02367B;
-    --bg-light-4: #006CA5;
-    --bg-light-3: #0496C7;
-    --bg-light-2: #04BADE;
-    --bg-light-1: #55E2E9;
-    --text-color-white: #FBFFF4;
+a.navbar-brand {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
 }
 
-*{
-    font-family: poppins, sans-serif;
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    font-size: 14px;
 }
 
-/** {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: poppins, sans-serif;
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.border-top {
+    border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+    font-size: 1rem;
+    line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    position: relative;
+    min-height: 100%;
 }
 
 body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
     width: 100%;
-    height: 100vh;
+    white-space: nowrap;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    line-height: 60px; /* Vertically center the text there */
 }
-
-.register_page_row {
-    height: 100%;
-}
-
-.register_heading {
-    background-color: var(--bg-color);
-    color: var(--text-color-white);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-    .register_heading h2 {
-        padding-left: 40px;
-        line-height: 5.5rem;
-        font-size: 70px;
-    }
-
-.register_details {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.register_page_section {
-    width: 60%;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-}
-
-.register_page_button_section {
-    border-bottom: 1px solid #ccc;
-    display: flex;
-    align-items: center;
-}
-
-.register_page_login {
-    position: relative;
-}
-
-    .register_page_login::after {
-        content: "";
-        position: absolute;
-        width: 1px;
-        height: 100%;
-        top: 0;
-        right: 0;
-        background-color: #ccc;
-    }
-
-.register_page_button_section a {
-    display: inline;
-    width: calc(50% - 1px);
-    padding: 15px 25px;
-    text-align: center;
-    text-decoration: none;
-    color: var(--bg-light-4);
-}
-
-    .register_page_button_section a:hover {
-        background-color: #f3f3f3;
-    }
-
-.btn-account {
-    background-color: var(--bg-light-4);
-    color: var(--text-color-white);
-    border: none;
-    padding: 10px 0;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-
-
-.register_page_main {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    padding: 15px;
-}
-
-    .register_page_main div {
-        display: flex;
-        flex-direction: column;
-    }
-*/

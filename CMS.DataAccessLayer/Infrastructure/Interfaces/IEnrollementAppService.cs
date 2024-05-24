@@ -10,6 +10,7 @@ namespace CMS.DataAccessLayer.Infrastructure.Interfaces
     public interface IEnrollementAppService:IAppService<Enrollement>
     {
         void Update(Enrollement enrollement);
-
+        IQueryable<Enrollement> GetEnrollementList();
     }
+
 }

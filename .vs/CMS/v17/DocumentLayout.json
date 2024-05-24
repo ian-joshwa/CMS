@@ -3,28 +3,40 @@
   "WorkspaceRootPath": "C:\\Users\\Owais\\source\\repos\\CMS\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E98B58BB-0545-4114-983C-1DAA11C2871A}|CMS.Models\\CMS.Models.csproj|c:\\users\\owais\\source\\repos\\cms\\cms.models\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E98B58BB-0545-4114-983C-1DAA11C2871A}|CMS.Models\\CMS.Models.csproj|solutionrelative:cms.models\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5522D1EC-36DE-4DE2-A86C-E834601ED67F}|CollegeManagementSystem\\CollegeManagementSystem.csproj|c:\\users\\owais\\source\\repos\\cms\\collegemanagementsystem\\areas\\admin\\views\\fees\\update.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5522D1EC-36DE-4DE2-A86C-E834601ED67F}|CollegeManagementSystem\\CollegeManagementSystem.csproj|solutionrelative:collegemanagementsystem\\areas\\admin\\views\\fees\\update.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5522D1EC-36DE-4DE2-A86C-E834601ED67F}|CollegeManagementSystem\\CollegeManagementSystem.csproj|c:\\users\\owais\\source\\repos\\cms\\collegemanagementsystem\\areas\\admin\\views\\instructor\\update.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{5522D1EC-36DE-4DE2-A86C-E834601ED67F}|CollegeManagementSystem\\CollegeManagementSystem.csproj|solutionrelative:collegemanagementsystem\\areas\\admin\\views\\instructor\\update.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{E98B58BB-0545-4114-983C-1DAA11C2871A}|CMS.Models\\CMS.Models.csproj|c:\\users\\owais\\source\\repos\\cms\\cms.models\\enrollement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E98B58BB-0545-4114-983C-1DAA11C2871A}|CMS.Models\\CMS.Models.csproj|solutionrelative:cms.models\\enrollement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5522D1EC-36DE-4DE2-A86C-E834601ED67F}|CollegeManagementSystem\\CollegeManagementSystem.csproj|c:\\users\\owais\\source\\repos\\cms\\collegemanagementsystem\\areas\\admin\\controllers\\instructorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5522D1EC-36DE-4DE2-A86C-E834601ED67F}|CollegeManagementSystem\\CollegeManagementSystem.csproj|solutionrelative:collegemanagementsystem\\areas\\admin\\controllers\\instructorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E98B58BB-0545-4114-983C-1DAA11C2871A}|CMS.Models\\CMS.Models.csproj|c:\\users\\owais\\source\\repos\\cms\\cms.models\\result.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E98B58BB-0545-4114-983C-1DAA11C2871A}|CMS.Models\\CMS.Models.csproj|solutionrelative:cms.models\\result.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5522D1EC-36DE-4DE2-A86C-E834601ED67F}|CollegeManagementSystem\\CollegeManagementSystem.csproj|c:\\users\\owais\\source\\repos\\cms\\collegemanagementsystem\\areas\\admin\\controllers\\departmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5522D1EC-36DE-4DE2-A86C-E834601ED67F}|CollegeManagementSystem\\CollegeManagementSystem.csproj|solutionrelative:collegemanagementsystem\\areas\\admin\\controllers\\departmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5522D1EC-36DE-4DE2-A86C-E834601ED67F}|CollegeManagementSystem\\CollegeManagementSystem.csproj|c:\\users\\owais\\source\\repos\\cms\\collegemanagementsystem\\areas\\admin\\controllers\\feescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5522D1EC-36DE-4DE2-A86C-E834601ED67F}|CollegeManagementSystem\\CollegeManagementSystem.csproj|solutionrelative:collegemanagementsystem\\areas\\admin\\controllers\\feescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5522D1EC-36DE-4DE2-A86C-E834601ED67F}|CollegeManagementSystem\\CollegeManagementSystem.csproj|c:\\users\\owais\\source\\repos\\cms\\collegemanagementsystem\\areas\\admin\\views\\instructor\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{5522D1EC-36DE-4DE2-A86C-E834601ED67F}|CollegeManagementSystem\\CollegeManagementSystem.csproj|solutionrelative:collegemanagementsystem\\areas\\admin\\views\\instructor\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{5522D1EC-36DE-4DE2-A86C-E834601ED67F}|CollegeManagementSystem\\CollegeManagementSystem.csproj|c:\\users\\owais\\source\\repos\\cms\\collegemanagementsystem\\areas\\student\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5522D1EC-36DE-4DE2-A86C-E834601ED67F}|CollegeManagementSystem\\CollegeManagementSystem.csproj|solutionrelative:collegemanagementsystem\\areas\\student\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5522D1EC-36DE-4DE2-A86C-E834601ED67F}|CollegeManagementSystem\\CollegeManagementSystem.csproj|c:\\users\\owais\\source\\repos\\cms\\collegemanagementsystem\\areas\\admin\\views\\instructor\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{5522D1EC-36DE-4DE2-A86C-E834601ED67F}|CollegeManagementSystem\\CollegeManagementSystem.csproj|solutionrelative:collegemanagementsystem\\areas\\admin\\views\\instructor\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{5522D1EC-36DE-4DE2-A86C-E834601ED67F}|CollegeManagementSystem\\CollegeManagementSystem.csproj|c:\\users\\owais\\source\\repos\\cms\\collegemanagementsystem\\areas\\admin\\views\\fees\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5522D1EC-36DE-4DE2-A86C-E834601ED67F}|CollegeManagementSystem\\CollegeManagementSystem.csproj|solutionrelative:collegemanagementsystem\\areas\\admin\\views\\fees\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5522D1EC-36DE-4DE2-A86C-E834601ED67F}|CollegeManagementSystem\\CollegeManagementSystem.csproj|c:\\users\\owais\\source\\repos\\cms\\collegemanagementsystem\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{5522D1EC-36DE-4DE2-A86C-E834601ED67F}|CollegeManagementSystem\\CollegeManagementSystem.csproj|solutionrelative:collegemanagementsystem\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5522D1EC-36DE-4DE2-A86C-E834601ED67F}|CollegeManagementSystem\\CollegeManagementSystem.csproj|c:\\users\\owais\\source\\repos\\cms\\collegemanagementsystem\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5522D1EC-36DE-4DE2-A86C-E834601ED67F}|CollegeManagementSystem\\CollegeManagementSystem.csproj|solutionrelative:collegemanagementsystem\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5522D1EC-36DE-4DE2-A86C-E834601ED67F}|CollegeManagementSystem\\CollegeManagementSystem.csproj|c:\\users\\owais\\source\\repos\\cms\\collegemanagementsystem\\areas\\identity\\pages\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5522D1EC-36DE-4DE2-A86C-E834601ED67F}|CollegeManagementSystem\\CollegeManagementSystem.csproj|solutionrelative:collegemanagementsystem\\areas\\identity\\pages\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,85 +46,123 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Course.cs",
-              "DocumentMoniker": "C:\\Users\\Owais\\source\\repos\\CMS\\CMS.Models\\Course.cs",
-              "RelativeDocumentMoniker": "CMS.Models\\Course.cs",
-              "ToolTip": "C:\\Users\\Owais\\source\\repos\\CMS\\CMS.Models\\Course.cs",
-              "RelativeToolTip": "CMS.Models\\Course.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "DocumentIndex": 2,
+              "Title": "Result.cs",
+              "DocumentMoniker": "C:\\Users\\Owais\\source\\repos\\CMS\\CMS.Models\\Result.cs",
+              "RelativeDocumentMoniker": "CMS.Models\\Result.cs",
+              "ToolTip": "C:\\Users\\Owais\\source\\repos\\CMS\\CMS.Models\\Result.cs",
+              "RelativeToolTip": "CMS.Models\\Result.cs",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAAABUAAAAmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-19T18:14:09.965Z",
+              "WhenOpened": "2024-05-24T16:44:12.199Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Update.cshtml",
-              "DocumentMoniker": "C:\\Users\\Owais\\source\\repos\\CMS\\CollegeManagementSystem\\Areas\\Admin\\Views\\Instructor\\Update.cshtml",
-              "RelativeDocumentMoniker": "CollegeManagementSystem\\Areas\\Admin\\Views\\Instructor\\Update.cshtml",
-              "ToolTip": "C:\\Users\\Owais\\source\\repos\\CMS\\CollegeManagementSystem\\Areas\\Admin\\Views\\Instructor\\Update.cshtml",
-              "RelativeToolTip": "CollegeManagementSystem\\Areas\\Admin\\Views\\Instructor\\Update.cshtml",
-              "ViewState": "AQIAABAAAAAAAAAAAAAAABwAAAAZAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-19T17:58:28.894Z",
+              "Title": "Enrollement.cs",
+              "DocumentMoniker": "C:\\Users\\Owais\\source\\repos\\CMS\\CMS.Models\\Enrollement.cs",
+              "RelativeDocumentMoniker": "CMS.Models\\Enrollement.cs",
+              "ToolTip": "C:\\Users\\Owais\\source\\repos\\CMS\\CMS.Models\\Enrollement.cs",
+              "RelativeToolTip": "CMS.Models\\Enrollement.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-24T16:43:56.295Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "C:\\Users\\Owais\\source\\repos\\CMS\\CollegeManagementSystem\\Areas\\Admin\\Views\\Instructor\\Create.cshtml",
-              "RelativeDocumentMoniker": "CollegeManagementSystem\\Areas\\Admin\\Views\\Instructor\\Create.cshtml",
-              "ToolTip": "C:\\Users\\Owais\\source\\repos\\CMS\\CollegeManagementSystem\\Areas\\Admin\\Views\\Instructor\\Create.cshtml",
-              "RelativeToolTip": "CollegeManagementSystem\\Areas\\Admin\\Views\\Instructor\\Create.cshtml",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAAABYAAAA9AAAA",
+              "DocumentIndex": 0,
+              "Title": "Update.cshtml",
+              "DocumentMoniker": "C:\\Users\\Owais\\source\\repos\\CMS\\CollegeManagementSystem\\Areas\\Admin\\Views\\Fees\\Update.cshtml",
+              "RelativeDocumentMoniker": "CollegeManagementSystem\\Areas\\Admin\\Views\\Fees\\Update.cshtml",
+              "ToolTip": "C:\\Users\\Owais\\source\\repos\\CMS\\CollegeManagementSystem\\Areas\\Admin\\Views\\Fees\\Update.cshtml",
+              "RelativeToolTip": "CollegeManagementSystem\\Areas\\Admin\\Views\\Fees\\Update.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-19T17:58:07.906Z",
+              "WhenOpened": "2024-05-24T09:07:10.497Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Owais\\source\\repos\\CMS\\CollegeManagementSystem\\Areas\\Admin\\Views\\Instructor\\Index.cshtml",
-              "RelativeDocumentMoniker": "CollegeManagementSystem\\Areas\\Admin\\Views\\Instructor\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Owais\\source\\repos\\CMS\\CollegeManagementSystem\\Areas\\Admin\\Views\\Instructor\\Index.cshtml",
-              "RelativeToolTip": "CollegeManagementSystem\\Areas\\Admin\\Views\\Instructor\\Index.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\Owais\\source\\repos\\CMS\\CollegeManagementSystem\\Areas\\Admin\\Views\\Fees\\Create.cshtml",
+              "RelativeDocumentMoniker": "CollegeManagementSystem\\Areas\\Admin\\Views\\Fees\\Create.cshtml",
+              "ToolTip": "C:\\Users\\Owais\\source\\repos\\CMS\\CollegeManagementSystem\\Areas\\Admin\\Views\\Fees\\Create.cshtml",
+              "RelativeToolTip": "CollegeManagementSystem\\Areas\\Admin\\Views\\Fees\\Create.cshtml",
+              "ViewState": "AQIAAEIAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-19T17:57:51.563Z",
+              "WhenOpened": "2024-05-24T09:05:53.97Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "site.css",
+              "DocumentMoniker": "C:\\Users\\Owais\\source\\repos\\CMS\\CollegeManagementSystem\\wwwroot\\css\\site.css",
+              "RelativeDocumentMoniker": "CollegeManagementSystem\\wwwroot\\css\\site.css",
+              "ToolTip": "C:\\Users\\Owais\\source\\repos\\CMS\\CollegeManagementSystem\\wwwroot\\css\\site.css",
+              "RelativeToolTip": "CollegeManagementSystem\\wwwroot\\css\\site.css",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-05-24T08:35:34.077Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\Owais\\source\\repos\\CMS\\CollegeManagementSystem\\Areas\\Student\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "CollegeManagementSystem\\Areas\\Student\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\Owais\\source\\repos\\CMS\\CollegeManagementSystem\\Areas\\Student\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "CollegeManagementSystem\\Areas\\Student\\Controllers\\HomeController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-23T20:33:22.135Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\Owais\\source\\repos\\CMS\\CollegeManagementSystem\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "CollegeManagementSystem\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\Owais\\source\\repos\\CMS\\CollegeManagementSystem\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "CollegeManagementSystem\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AQIAABAAAAAAAAAAAAAAABoAAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-23T20:32:49.912Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "DepartmentController.cs",
-              "DocumentMoniker": "C:\\Users\\Owais\\source\\repos\\CMS\\CollegeManagementSystem\\Areas\\Admin\\Controllers\\DepartmentController.cs",
-              "RelativeDocumentMoniker": "CollegeManagementSystem\\Areas\\Admin\\Controllers\\DepartmentController.cs",
-              "ToolTip": "C:\\Users\\Owais\\source\\repos\\CMS\\CollegeManagementSystem\\Areas\\Admin\\Controllers\\DepartmentController.cs",
-              "RelativeToolTip": "CollegeManagementSystem\\Areas\\Admin\\Controllers\\DepartmentController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Title": "FeesController.cs",
+              "DocumentMoniker": "C:\\Users\\Owais\\source\\repos\\CMS\\CollegeManagementSystem\\Areas\\Admin\\Controllers\\FeesController.cs",
+              "RelativeDocumentMoniker": "CollegeManagementSystem\\Areas\\Admin\\Controllers\\FeesController.cs",
+              "ToolTip": "C:\\Users\\Owais\\source\\repos\\CMS\\CollegeManagementSystem\\Areas\\Admin\\Controllers\\FeesController.cs",
+              "RelativeToolTip": "CollegeManagementSystem\\Areas\\Admin\\Controllers\\FeesController.cs",
+              "ViewState": "AQIAAG8AAAAAAAAAAAAAABcAAAAvAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-19T17:41:09.722Z",
+              "WhenOpened": "2024-05-23T20:06:21.513Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "InstructorController.cs",
-              "DocumentMoniker": "C:\\Users\\Owais\\source\\repos\\CMS\\CollegeManagementSystem\\Areas\\Admin\\Controllers\\InstructorController.cs",
-              "RelativeDocumentMoniker": "CollegeManagementSystem\\Areas\\Admin\\Controllers\\InstructorController.cs",
-              "ToolTip": "C:\\Users\\Owais\\source\\repos\\CMS\\CollegeManagementSystem\\Areas\\Admin\\Controllers\\InstructorController.cs",
-              "RelativeToolTip": "CollegeManagementSystem\\Areas\\Admin\\Controllers\\InstructorController.cs",
-              "ViewState": "AQIAADYAAAAAAAAAAAAAwEoAAAAqAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-19T17:40:07.51Z",
-              "EditorCaption": ""
+              "DocumentIndex": 8,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\Owais\\source\\repos\\CMS\\CollegeManagementSystem\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
+              "RelativeDocumentMoniker": "CollegeManagementSystem\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
+              "ToolTip": "C:\\Users\\Owais\\source\\repos\\CMS\\CollegeManagementSystem\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
+              "RelativeToolTip": "CollegeManagementSystem\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
+              "ViewState": "AQIAAEgAAAAAAAAAAAAAAFkAAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-23T20:21:42.158Z"
             }
           ]
         }
