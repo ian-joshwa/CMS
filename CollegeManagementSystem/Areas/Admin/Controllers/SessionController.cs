@@ -1,4 +1,5 @@
-﻿using CMS.DataAccessLayer.Data;
+﻿using CMS.CommonHelper;
+using CMS.DataAccessLayer.Data;
 using CMS.DataAccessLayer.Infrastructure.Interfaces;
 using CMS.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -29,6 +30,7 @@ namespace CollegeManagementSystem.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult Index()
         {
+            Navigation.ActivePage = "/Admin/Session/Index";
             return View();
         }
 
@@ -51,7 +53,7 @@ namespace CollegeManagementSystem.Areas.Admin.Controllers
                 if (result)
                 {
                     TempData["success"] = "Session Added Successfully";
-                    return View("Index");
+                    return RedirectToAction("Index");
                 }
                 else
                 {
@@ -83,7 +85,7 @@ namespace CollegeManagementSystem.Areas.Admin.Controllers
                 if (result)
                 {
                     TempData["success"] = "Session Updated Successfully";
-                    return View("Index");
+                    return RedirectToAction("Index");
                 }
                 else
                 {

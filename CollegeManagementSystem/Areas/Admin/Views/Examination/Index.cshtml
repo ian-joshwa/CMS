@@ -9,8 +9,8 @@
             <h2 class="m-0">Examination</h2>
         </div>
 
-        <div class="col-6">
-            <a asp-area="Admin" asp-controller="Examination" asp-action="Create" class="btn btn-primary">Add Session</a>
+        <div class="col-6 button-col">
+            <a asp-area="Admin" asp-controller="Examination" asp-action="Create" class="btn custom-btn">Add</a>
         </div>
     </div>
 
@@ -24,7 +24,6 @@
                     <tr>
                         <th>Exam Name</th>
                         <th>Exam Date</th>
-                        @* <th>Session</th> *@
                         <th>Course</th>
                         <th>Total Marks</th>
                         <th>Duration</th>
@@ -69,9 +68,9 @@
                     "data": "id",
                     "render": function (data) {
                         return `
-                                    <a class="btn btn-primary" href="/Admin/Examination/Update?id=${data}">Edit</a>
-                                    <a class="btn btn-danger" onclick=RemoveExamination("/Admin/Examination/Delete/${data}")>Delete</a>
-                                `
+                                <a class="edit-btn" href="/Admin/Examination/Update?id=${data}"><i class="bi bi-pencil-square"></i></a>
+                                <a class="delete-btn" onclick=RemoveExamination("/Admin/Examination/Delete/${data}")><i class="bi bi-trash3-fill"></i></a>
+                            `
                     }
                 }
 

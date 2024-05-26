@@ -1,6 +1,19 @@
 /* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
+:root {
+    --bg-color: #02367B;
+    --bg-light-4: #006CA5;
+    --bg-light-3: #0496C7;
+    --bg-light-2: #04BADE;
+    --bg-light-1: #55E2E9;
+    --text-color-white: #FBFFF4;
+}
+
+*{
+    font-family: poppins, sans-serif;
+}
+
 a.navbar-brand {
     white-space: normal;
     text-align: center;
@@ -38,14 +51,137 @@ button.accept-policy {
 
 /* Sticky footer styles
 -------------------------------------------------- */
+body,
 html {
-    position: relative;
-    min-height: 100%;
+    height: 100%;
 }
 
-body {
-    /* Margin bottom by footer height */
-    margin-bottom: 60px;
+
+.dt-search label {
+    display: none;
+}
+
+.dt-length label {
+    margin-left: 10px;
+}
+
+.table.dataTable td.dt-type-numeric {
+    text-align: left;
+}
+
+.login-container {
+    width: 100%;
+    height: 100%;
+    padding: 60px;
+}
+
+.container {
+    max-width: 100% !important;
+    height: 100%;
+}
+
+.container .main-row {
+    display: flex;
+}
+
+.main-heading {
+    color: var(--text-color-white);
+    font-size: 42px;
+    font-weight: bold;
+    padding-left: 20px;
+}
+
+.edit-btn {
+    background-color: var(--bg-light-4);
+    color: var(--text-color-white);
+    padding: 4px;
+    border-radius: 4px;
+}
+
+.edit-btn:hover {
+    background-color: var(--bg-light-3);
+    color: var(--text-color-white);
+    transition: .2s all;
+}
+
+.delete-btn {
+    background-color: #dc3545;
+    color: var(--text-color-white);
+    padding: 4px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    background-color: #bb2d3b;
+    color: var(--text-color-white);
+    transition: .2s all;
+}
+
+.custom-btn {
+    background-color: var(--bg-light-4);
+    color: var(--text-color-white);
+}
+
+.custom-btn:hover {
+    background-color: var(--bg-light-3);
+    color: var(--text-color-white);
+    transition: .2s all;
+}
+
+.button-col {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.side-navigation {
+    border-right: 1px solid #ccc;
+    width: calc(23% - 1px);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 30px 30px 60px 30px;
+    background-color: var(--bg-color);
+}
+
+.side-navigation a {
+    text-decoration: none;
+    color: var(--text-color-white) !important;
+    font-size: 20px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: .2s all;
+}
+
+.side-navigation a:hover {
+    background-color: var(--bg-light-4);
+    transition: .2s all;
+}
+
+.side-link-active {
+    background-color: var(--bg-light-4);
+}
+
+.main-content {
+    width: 77%;
+    position: relative;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 60px;
+    width: 77%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    border-bottom: 1px solid #ccc;
+}
+
+.content {
+    padding: 160px 80px 40px 50px;
 }
 
 .footer {
@@ -53,7 +189,6 @@ body {
     bottom: 0;
     width: 100%;
     white-space: nowrap;
-    /* Set the fixed height of the footer here */
     height: 60px;
-    line-height: 60px; /* Vertically center the text there */
+    line-height: 60px; 
 }

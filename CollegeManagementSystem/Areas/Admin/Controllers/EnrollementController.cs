@@ -1,4 +1,5 @@
-﻿using CMS.DataAccessLayer.Infrastructure.Interfaces;
+﻿using CMS.CommonHelper;
+using CMS.DataAccessLayer.Infrastructure.Interfaces;
 using CMS.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -24,6 +25,7 @@ namespace CollegeManagementSystem.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult Index()
         {
+            Navigation.ActivePage = "/Admin/Enrollement/Index";
             return View();
         }
         [HttpGet]
@@ -63,7 +65,7 @@ namespace CollegeManagementSystem.Areas.Admin.Controllers
                 if (result)
                 {
                     TempData["success"] = "Enrollement Added Successfully";
-                    return View("Index");
+                    return RedirectToAction("Index");
                 }
                 else
                 {
@@ -114,7 +116,7 @@ namespace CollegeManagementSystem.Areas.Admin.Controllers
                 if (result)
                 {
                     TempData["success"] = "Enrollement Updated Successfully";
-                    return View("Index");
+                    return RedirectToAction("Index");
                 }
                 else
                 {

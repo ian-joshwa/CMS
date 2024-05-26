@@ -12,7 +12,7 @@ namespace CollegeManagementSystem.Areas.Admin.Controllers
         [Route("/Admin/Home")]
         public IActionResult Home()
         {
-
+            Navigation.ActivePage = "/Admin/Home/Home";
             return View();
         }
     }

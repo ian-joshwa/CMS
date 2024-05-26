@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CMS.DataAccessLayer.Migrations
 {
-    public partial class studentnew : Migration
+    public partial class CMS_New : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -330,6 +330,33 @@ namespace CMS.DataAccessLayer.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Results",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    StudentRegistrationId = table.Column<int>(type: "int", nullable: false),
+                    ExaminationId = table.Column<int>(type: "int", nullable: false),
+                    Marks = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Results", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Results_Examinations_ExaminationId",
+                        column: x => x.ExaminationId,
+                        principalTable: "Examinations",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Results_StudentRegistrations_StudentRegistrationId",
+                        column: x => x.StudentRegistrationId,
+                        principalTable: "StudentRegistrations",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -400,6 +427,16 @@ namespace CMS.DataAccessLayer.Migrations
                 column: "DepartmentId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Results_ExaminationId",
+                table: "Results",
+                column: "ExaminationId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Results_StudentRegistrationId",
+                table: "Results",
+                column: "StudentRegistrationId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_StudentRegistrations_ApplicationUserId",
                 table: "StudentRegistrations",
                 column: "ApplicationUserId");
@@ -426,31 +463,34 @@ namespace CMS.DataAccessLayer.Migrations
                 name: "Enrollements");
 
             migrationBuilder.DropTable(
-                name: "Examinations");
-
-            migrationBuilder.DropTable(
                 name: "Fees");
 
             migrationBuilder.DropTable(
                 name: "Instructors");
 
             migrationBuilder.DropTable(
+                name: "Results");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
-
-            migrationBuilder.DropTable(
-                name: "Courses");
-
-            migrationBuilder.DropTable(
-                name: "StudentRegistrations");
 
             migrationBuilder.DropTable(
                 name: "Departments");
 
             migrationBuilder.DropTable(
-                name: "Sessions");
+                name: "Examinations");
+
+            migrationBuilder.DropTable(
+                name: "StudentRegistrations");
+
+            migrationBuilder.DropTable(
+                name: "Courses");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "Sessions");
         }
     }
 }

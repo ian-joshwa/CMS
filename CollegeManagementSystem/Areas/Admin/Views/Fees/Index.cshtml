@@ -9,8 +9,8 @@
             <h2 class="m-0">Fees</h2>
         </div>
 
-        <div class="col-6">
-            <a asp-area="Admin" asp-controller="Fees" asp-action="Create" class="btn btn-primary">Add Session</a>
+        <div class="col-6 button-col">
+            <a asp-area="Admin" asp-controller="Fees" asp-action="Create" class="btn custom-btn">Add</a>
         </div>
     </div>
 
@@ -78,9 +78,9 @@
                     "data": "id",
                     "render": function (data) {
                         return `
-                                    <a class="btn btn-primary" href="/Admin/Fees/Update?id=${data}">Edit</a>
-                                    <a class="btn btn-danger" onclick=RemoveFees("/Admin/Fees/Delete/${data}")>Delete</a>
-                                `
+                                <a class="edit-btn" href="/Admin/Fees/Update?id=${data}"><i class="bi bi-pencil-square"></i></a>
+                                <a class="delete-btn" onclick=RemoveFees("/Admin/Fees/Delete/${data}")><i class="bi bi-trash3-fill"></i></a>
+                            `
                     }
                 }
 

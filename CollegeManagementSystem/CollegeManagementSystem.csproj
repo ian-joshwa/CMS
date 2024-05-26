@@ -23,8 +23,4 @@
     <ProjectReference Include="..\CMS.Models\CMS.Models.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
 </Project>

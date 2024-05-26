@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CMS.DataAccessLayer.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240523084559_result-update")]
-    partial class resultupdate
+    [Migration("20240526075202_CMS_New")]
+    partial class CMS_New
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
