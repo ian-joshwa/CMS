@@ -1,0 +1,69 @@
+﻿@using CMS.Models;
+@model ApplicationUser
+
+<div class="row">
+
+    <div class="col-12">
+
+        <form method="post" asp-area="Student" asp-controller="Account" asp-action="Profile" enctype="multipart/form-data">
+
+            <div class="account-right">
+
+                <div class="account-img">
+                    <div class="acc-img">
+                        @if (Model.ProfilePic != null)
+                        {
+                            <img src="@Model.ProfilePic" class="ppic" />
+                        }
+                        else
+                        {
+                            <img src="/ProfileImages/user.png" class="ppic" />
+                        }
+                    </div>
+                    <label for="Profile-Pic" class="edit-icon">
+                        <i class="bi bi-pen"></i>
+                    </label>
+                    <input id="Profile-Pic" class="profile-pic" type="file" name="file" accept=".png, .jpg" style="visibility:hidden;" />
+                </div>
+
+                <div class="account-detail">
+                    <div class="detail-inner">
+                        <label asp-for="FirstName">First Name</label>
+                        <input asp-for="FirstName" class="form-control" />
+                    </div>
+
+                    <div class="detail-inner">
+                        <label asp-for="LastName">Last Name</label>
+                        <input asp-for="LastName" class="form-control" />
+                    </div>
+
+                    <button type="submit" class="btn btn-success">Save</button>
+
+                </div>
+
+            </div>
+
+        </form>
+
+    </div>
+
+
+</div>
+
+
+@section scripts {
+
+    <script>
+
+        document.getElementById("Profile-Pic").addEventListener("change", function (e) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                document.querySelector(".ppic").src = e.target.result;
+            };
+            reader.readAsDataURL(e.target.files[0]);
+        });
+
+    </script>
+
+
+}

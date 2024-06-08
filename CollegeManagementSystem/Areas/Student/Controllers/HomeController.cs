@@ -26,7 +26,7 @@ namespace CollegeManagementSystem.Areas.Student.Controllers
         [Route("/Student/Home")]
         public IActionResult Home()
         {
-
+            Navigation.ActivePage = "/Student/Home/Home";
             return View();
         }
 
