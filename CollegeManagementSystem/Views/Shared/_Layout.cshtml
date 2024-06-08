@@ -29,6 +29,8 @@
                 @if (User.IsInRole(WebsiteRoles.Role_Admin))
                 {
                     <a asp-area="Admin" asp-controller="Home" asp-action="Home" data-link="/Admin/Home/Home" class="side-link">Home</a>
+                    <a asp-area="Admin" asp-controller="Account" asp-action="Profile" data-link="/Admin/Account/Profile" class="side-link">Profile</a>
+                    <a asp-area="Admin" asp-controller="Account" asp-action="ChangePassword" data-link="/Admin/Account/ChangePassword" class="side-link">Change Password</a>
                     <a asp-area="Admin" asp-controller="Session" asp-action="Index" data-link="/Admin/Session/Index" class="side-link">Sessions</a>
                     <a asp-area="Admin" asp-controller="Course" asp-action="Index" data-link="/Admin/Course/Index" class="side-link">Courses</a>
                     <a asp-area="Admin" asp-controller="Department" asp-action="Index" data-link="/Admin/Department/Index" class="side-link">Departments</a>
@@ -40,16 +42,20 @@
                 }
                 else
                 {
-                    <a class="side-link">Home</a>
+                    <a asp-area="Student" asp-controller="Home" asp-action="Home" data-link="/Student/Home/Home" class="side-link">Home</a>
+                    <a asp-area="Student" asp-controller="Account" asp-action="Profile" data-link="/Student/Account/Profile" class="side-link">Profile</a>
+                    <a asp-area="Student" asp-controller="Account" asp-action="ChangePassword" data-link="/Student/Account/ChangePassword" class="side-link">Change Password</a>
                 }
 
             </div>
             <div class="main-content">
                 <div class="header">
-                    <button id="logout" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })" class="nav-link btn btn-link text-dark">Logout</button>
-
+                    <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                        <button id="logout" type="submit" class="nav-link btn btn-link text-dark logout-btn">Logout</button>
+                    </form>
                 </div>
                 <div class="content">
+                    <partial name="_Notification" />
                     @RenderBody()
                 </div>
             </div>

@@ -53,7 +53,7 @@ button.accept-policy {
 -------------------------------------------------- */
 body,
 html {
-    height: 100%;
+    height: 100vh !important;
 }
 
 
@@ -82,6 +82,7 @@ html {
 
 .container .main-row {
     display: flex;
+    height: 100%;
 }
 
 .main-heading {
@@ -129,6 +130,16 @@ html {
     transition: .2s all;
 }
 
+.logout-btn {
+    border-radius: 8px;
+    color: var(--text-color-white) !important;
+}
+
+.logout-btn:hover {
+    background: var(--bg-light-4);
+    transition: .2s all;
+}
+
 .button-col {
     display: flex;
     align-items: center;
@@ -136,13 +147,17 @@ html {
 }
 
 .side-navigation {
-    border-right: 1px solid #ccc;
     width: calc(23% - 1px);
     display: flex;
     flex-direction: column;
     gap: 12px;
     padding: 30px 30px 60px 30px;
     background-color: var(--bg-color);
+    overflow-y: scroll;
+}
+
+.side-navigation::-webkit-scrollbar {
+    width: 0;
 }
 
 .side-navigation a {
@@ -178,11 +193,107 @@ html {
     align-items: center;
     justify-content: flex-end;
     border-bottom: 1px solid #ccc;
+    z-index: 1000;
+    background: var(--bg-color);
+    padding-right: 15px;
 }
 
 .content {
-    padding: 160px 80px 40px 50px;
+    padding: 120px 80px 40px 50px;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    height: 100%;
 }
+
+.content::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* ----------------- Dashboard Cards -------------------------- */
+
+.dashboard-card {
+
+    background: var(--bg-light-3);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    aspect-ratio: 3/2;
+    color: var(--text-color-white);
+}
+
+.dashboard-card i {
+    font-size: 60px;
+    display: flex;
+}
+
+
+/* -------------------- Profile ---------------------------------- */
+
+.account-right {
+    display: flex;
+    padding: 20px 40px 20px 100px;
+    gap: 20px;
+}
+
+.account-img {
+    height: 280px;
+    aspect-ratio: 1;
+    position: relative;
+    border-radius: 50%;
+}
+
+    .account-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+.acc-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+    .acc-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+.edit-icon {
+    height: 60px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #F2F3F4;
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+    cursor: pointer;
+}
+
+.account-detail {
+    width: 50%;
+    padding: 35px 30px 35px 65px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.account-password {
+    width: 100%;
+    padding: 35px 30px 35px 65px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
 
 .footer {
     position: absolute;
