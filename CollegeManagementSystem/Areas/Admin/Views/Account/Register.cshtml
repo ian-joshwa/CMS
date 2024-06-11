@@ -6,6 +6,49 @@
 }
 
 <div class="side-spacing-container">
+    <div class="row">
+        <div class="col-md-8">
+            <section class="account-card">
+                <form id="registerForm" method="post">
+                    <h2 class="mb-3">Register</h2>
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="form-group mb-2">
+                        <label asp-for="FirstName">First Name<span class="text-danger">*</span></label>
+                        <input asp-for="FirstName" class="form-control" aria-required="true" />
+                        <span asp-validation-for="FirstName" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-2">
+                        <label asp-for="LastName">Last Name<span class="text-danger">*</span></label>
+                        <input asp-for="LastName" class="form-control" aria-required="true" />
+                        <span asp-validation-for="LastName" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-2">
+                        <label asp-for="Email">Email<span class="text-danger">*</span></label>
+                        <input asp-for="Email" class="form-control" autocomplete="username" aria-required="true" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group mb-2">
+                        <label asp-for="Password">Password</label>
+                        <input asp-for="Password" class="form-control" autocomplete="new-password" aria-required="true" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label asp-for="ConfirmPassword">Confirm Password</label>
+                        <input asp-for="ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" />
+                        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                    </div>
+                    <button id="registerSubmit" type="submit" class="btn account-btn">Register</button>
+                </form>
+            </section>
+        </div>
+    </div>
+
+</div>
+
+@* <div class="side-spacing-container">
 
 
     <div class="row">
@@ -48,7 +91,7 @@
 
     </div>
 
-</div>
+</div> *@
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

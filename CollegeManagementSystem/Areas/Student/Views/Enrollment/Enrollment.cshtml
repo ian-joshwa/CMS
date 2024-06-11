@@ -1,0 +1,34 @@
+﻿@model List<CMS.Models.Session>
+
+<table class="table table-bordered table-striped">
+
+    <thead>
+
+        <tr>
+            <th>Session</th>
+            <th>Start Time</th>
+            <th>End Time</th>
+            <th>Action</th>
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        @foreach(var session in Model)
+        {
+            
+            <tr>
+
+                <td>@session.SessionName</td>
+                <td>@session.StartTime.ToShortDateString()</td>
+                <td>@session.EndTime.ToShortDateString()</td>
+
+
+            </tr>
+
+        }
+
+    </tbody>
+
+</table>
