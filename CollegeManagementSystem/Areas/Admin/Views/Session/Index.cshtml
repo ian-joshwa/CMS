@@ -1,5 +1,7 @@
-﻿@{
-    ViewData["Title"] = "Session";
+﻿@using CMS.CommonHelper
+@{
+    ViewData["Title"] = "Central College";
+    TempData["Title"] = "Sessions";
 }
 
 <div>
@@ -25,8 +27,9 @@
                         <th>Session Name</th>
                         <th>Start Time</th>
                         <th>End Time</th>
-                        <th>Capacity</th>
-                        <th>Enrolled Count</th>
+                        <th>Admission Fee</th>
+                        <th>Monthly Fee</th>
+                        <th>Merit</th>
                         <th>Status</th>
                         <th>Action</th>
                     </tr>
@@ -68,9 +71,19 @@
                         return date.toLocaleDateString('en-PK');
                     }
                 },
-                { "data": "capacity" },
-                { "data": "enrolledCount" },
-                { "data": "status" },
+                { "data": "admissionFee" },
+                { "data": "monthlyFee" },
+                { "data": "merit" },
+                { 
+                    "data": "status",
+                    "render": function (data) {
+                        if (data == '@SessionStatus.UpComing') {
+                            return "Up Coming";
+                        }
+                        return data;
+                    }
+
+                },
                 {
                     "data": "id",
                     "render": function (data) {

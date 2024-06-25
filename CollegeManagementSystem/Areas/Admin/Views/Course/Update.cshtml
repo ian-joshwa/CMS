@@ -1,6 +1,10 @@
 ﻿@using CMS.CommonHelper;
-
 @model CMS.Models.Course
+
+@{
+    ViewData["Title"] = "Central College";
+    TempData["Title"] = "Course";
+}
 
 <div>
 
@@ -24,9 +28,9 @@
                 <input asp-for="Name" class="form-control" />
                 <span asp-validation-for="Name"></span>
 
-                <label asp-for="CreditHours" class="mt-3">Credit Hours</label>
+                @* <label asp-for="CreditHours" class="mt-3">Credit Hours</label>
                 <input asp-for="CreditHours" type="int" class="form-control" />
-                <span asp-validation-for="CreditHours"></span>
+                <span asp-validation-for="CreditHours"></span> *@
 
 @* 
                 <label asp-for="InstructorId" class="mt-3">Instructor</label>
@@ -40,6 +44,12 @@
                     <option selected disabled>-- Select Session --</option>
                 </select>
                 <span asp-validation-for="SessionId"></span>
+
+                <label asp-for="CourseYearId" class="mt-3">Course Year</label>
+                <select asp-for="CourseYearId" asp-items="@ViewBag.CourseYearlist" class="form-control">
+                    <option selected disabled>-- Select Semester --</option>
+                </select>
+                <span asp-validation-for="CourseYearId"></span>
 
 
                 <button type="submit" class="btn custom-btn mt-2 mb-1">Save</button>

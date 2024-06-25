@@ -1,16 +1,29 @@
 ﻿@using CMS.CommonHelper;
+@using CMS.DataAccessLayer.Infrastructure.Interfaces
+@using CMS.DataAccessLayer.Infrastructure.Services
+@using CMS.Models
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<ApplicationUser> userManager;
+@inject IUnitOfWork unitOfWork;
+@{
+    var user = await userManager.GetUserAsync(User);
+    var std = unitOfWork.StudentRegistrationAppService.Get(x => x.ApplicationUserId == user.Id);
+
+}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - CollegeManagementSystem</title>
+    <title>@ViewData["Title"] | @TempData["Title"]</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
           rel="stylesheet">
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css" integrity="sha512-nNlU0WK2QfKsuEmdcTwkeh+lhGs6uyOxuUs+n+0oXSYDok5qy0EI0lt01ZynHq6+p/tbgpZ7P+yUb+r71wqdXg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" integrity="sha512-dPXYcDub/aeb08c63jRq/k6GaKccl256JQy/AnOq7CAnEZ9FzSL9wSbcZkMp4R26vBsMLFYH4kQ67/bbV8XaCQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="//cdn.datatables.net/2.0.7/css/dataTables.dataTables.min.css" asp-append-version="true" />
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" asp-append-version="true" />
@@ -29,31 +42,93 @@
                 @if (User.IsInRole(WebsiteRoles.Role_Admin))
                 {
                     <a asp-area="Admin" asp-controller="Home" asp-action="Home" data-link="/Admin/Home/Home" class="side-link">Home</a>
-                    <a asp-area="Admin" asp-controller="Account" asp-action="Profile" data-link="/Admin/Account/Profile" class="side-link">Profile</a>
-                    <a asp-area="Admin" asp-controller="Account" asp-action="ChangePassword" data-link="/Admin/Account/ChangePassword" class="side-link">Change Password</a>
+                    @* <a asp-area="Admin" asp-controller="Account" asp-action="Profile" data-link="/Admin/Account/Profile" class="side-link">Profile</a>
+                    <a asp-area="Admin" asp-controller="Account" asp-action="ChangePassword" data-link="/Admin/Account/ChangePassword" class="side-link">Change Password</a> *@
                     <a asp-area="Admin" asp-controller="Session" asp-action="Index" data-link="/Admin/Session/Index" class="side-link">Sessions</a>
                     <a asp-area="Admin" asp-controller="Course" asp-action="Index" data-link="/Admin/Course/Index" class="side-link">Courses</a>
-                    <a asp-area="Admin" asp-controller="Department" asp-action="Index" data-link="/Admin/Department/Index" class="side-link">Departments</a>
-                    <a asp-area="Admin" asp-controller="Instructor" asp-action="Index" data-link="/Admin/Instructor/Index" class="side-link">Instructors</a>
+                    <a asp-area="Admin" asp-controller="CourseYear" asp-action="Index" data-link="/Admin/CourseYear/Index" class="side-link">Course Years</a>
                     <a asp-area="Admin" asp-controller="Enrollement" asp-action="Index" data-link="/Admin/Enrollement/Index" class="side-link">Enrollements</a>
                     <a asp-area="Admin" asp-controller="Fees" asp-action="Index" data-link="/Admin/Fees/Index" class="side-link">Fees</a>
-                    <a asp-area="Admin" asp-controller="Examination" asp-action="Index" data-link="/Admin/Examination/Index" class="side-link">Examination</a>
                     <a asp-area="Admin" asp-controller="Result" asp-action="Index" data-link="/Admin/Result/Index" class="side-link">Result</a>
                 }
                 else
                 {
                     <a asp-area="Student" asp-controller="Home" asp-action="Home" data-link="/Student/Home/Home" class="side-link">Home</a>
-                    <a asp-area="Student" asp-controller="Account" asp-action="Profile" data-link="/Student/Account/Profile" class="side-link">Profile</a>
-                    <a asp-area="Student" asp-controller="Account" asp-action="ChangePassword" data-link="/Student/Account/ChangePassword" class="side-link">Change Password</a>
-                    <a asp-area="Student" asp-controller="Enrollment" asp-action="Enrollment" data-link="/Student/Enrollment/Enrollment" class="side-link">Enroll</a>
+                    @* <a asp-area="Student" asp-controller="Account" asp-action="Profile" data-link="/Student/Account/Profile" class="side-link">Profile</a>
+                    <a asp-area="Student" asp-controller="Account" asp-action="ChangePassword" data-link="/Student/Account/ChangePassword" class="side-link">Change Password</a> *@
+                    
+                    @if (!std.IsEnrolled)
+                    {
+                        <a asp-area="Student" asp-controller="Enrollment" asp-action="Enrollment" data-link="/Student/Enrollment/Enrollment" class="side-link">Enroll</a>
+                        <a asp-area="Student" asp-controller="Document" asp-action="Index" data-link="/Student/Document/Index" class="side-link">Documents</a>
+                    }
+
+                    @if (std.IsEnrolled)
+                    {
+
+                        <a asp-area="Student" asp-controller="Course" asp-action="Index" data-link="/Student/Course/Index" class="side-link">Courses</a>
+                        <a asp-area="Student" asp-controller="Fee" asp-action="Index" data-link="/Student/Fee/Index" class="side-link">Fees</a>
+                        <a asp-area="Student" asp-controller="Result" asp-action="Index" data-link="/Student/Result/Index" class="side-link">Result</a>
+
+                    }
                 }
 
             </div>
             <div class="main-content">
                 <div class="header">
-                    <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+
+                    @if (User.IsInRole(WebsiteRoles.Role_Admin))
+                    {
+                        <div class="mnr-login">
+                            <div class="profile-pic">
+                                @if (user.ProfilePic == null)
+                                {
+                                    <img src="/ProfileImages/user.png" />
+                                }
+                                else
+                                {
+                                    <img src="@user.ProfilePic" />
+                                }
+                            </div>
+
+                            <div class="options">
+
+                                <a asp-area="Admin" asp-controller="Account" asp-action="Profile" class="option-link">Profile</a>
+                                <a asp-area="Admin" asp-controller="Account" asp-action="ChangePassword" class="option-link">Change Password</a>
+                                <a asp-area="Admin" asp-controller="Account" asp-action="Logout" class="option-link">Sign Out</a>
+
+                            </div>
+
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="mnr-login">
+                            <div class="profile-pic">
+                                @if (user.ProfilePic == null)
+                                {
+                                    <img src="/ProfileImages/user.png" />
+                                }
+                                else
+                                {
+                                    <img src="@user.ProfilePic" />
+                                }
+                            </div>
+
+                            <div class="options">
+
+                                <a asp-area="Student" asp-controller="Account" asp-action="Profile" class="option-link">Profile</a>
+                                <a asp-area="Student" asp-controller="Account" asp-action="ChangePassword" class="option-link">Change Password</a>
+                                <a asp-area="Admin" asp-controller="Account" asp-action="Logout" class="option-link">Sign Out</a>
+
+                            </div>
+
+                        </div>
+                    }
+
+                    @* <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
                         <button id="logout" type="submit" class="nav-link btn btn-link text-dark logout-btn">Logout</button>
-                    </form>
+                    </form> *@
                 </div>
                 <div class="content">
                     <partial name="_Notification" />
@@ -71,13 +146,15 @@
         </div>
     </footer> *@
 
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="//cdn.datatables.net/2.0.7/js/dataTables.min.js"></script>
     <script src="/js/NavigationJs.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
     <script src="https://cdn.tiny.cloud/1/5etzvnyjfyvo8kxvcelxo0shoj3xj20q5i4ky44px4rn9bw6/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)

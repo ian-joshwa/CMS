@@ -1,5 +1,6 @@
 ﻿@{
-    ViewData["Title"] = "Fee";
+    ViewData["Title"] = "Central College";
+    TempData["Title"] = "Fees";
 }
 
 <div>
@@ -9,9 +10,6 @@
             <h2 class="m-0">Fees</h2>
         </div>
 
-        <div class="col-6 button-col">
-            <a asp-area="Admin" asp-controller="Fees" asp-action="Create" class="btn custom-btn">Add</a>
-        </div>
     </div>
 
     <div class="row">
@@ -25,7 +23,7 @@
                         <th>Student</th>
                         <th>Amount</th>
                         <th>Due Date</th>
-                        <th>Paid Date</th>
+                        <th>Fee Type</th>
                         <th>Status</th>
                         <th>Action</th>
                     </tr>
@@ -41,7 +39,7 @@
 
 @section scripts {
 
-    <script>
+    <script type="text/javascript">
 
         let FeesTable;
 
@@ -67,20 +65,17 @@
                     }
                 },
                 {
-                    "data": "paidDate",
-                    "render": function (data) {
-                        const date = new Date(data);
-                        return date.toLocaleDateString('en-PK');
-                    }
+                    "data": "feeType"
                 },
                 { "data": "status" },
                 {
-                    "data": "id",
+                    "data": "feeVoucher",
                     "render": function (data) {
                         return `
-                                <a class="edit-btn" href="/Admin/Fees/Update?id=${data}"><i class="bi bi-pencil-square"></i></a>
-                                <a class="delete-btn" onclick=RemoveFees("/Admin/Fees/Delete/${data}")><i class="bi bi-trash3-fill"></i></a>
-                            `
+                                <a class="btn custom-btn" onclick="DownloadVoucher('${data}')">Voucher</a>
+                                <a class="btn btn-success" onclick="PayFee('/Admin/Fees/PayFee?voucher=${data}')">Approve</a>
+                                <a class="btn btn-danger" onclick="RejectFee('/Admin/Fees/RejectFee?voucher=${data}')">Reject</a>
+                            `;
                     }
                 }
 
@@ -89,52 +84,90 @@
 
         });
 
+        function RejectFee(url) {
 
-        function RemoveFees(url) {
-
-            Swal.fire({
-                title: "Are you sure?",
-                text: "You won't be able to revert this!",
-                icon: "warning",
-                showCancelButton: true,
-                confirmButtonColor: "#3085d6",
-                cancelButtonColor: "#d33",
-                confirmButtonText: "Yes, delete it!"
-            }).then((result) => {
-                if (result.isConfirmed) {
-
-                    var xmlHttp = new XMLHttpRequest();
-
-
-                    xmlHttp.onreadystatechange = () => {
-
-                        if (xmlHttp.readyState == 4 && (xmlHttp.status >= 200 && xmlHttp.status < 400)) {
-
-                            var result = JSON.parse(xmlHttp.responseText);
-
-                            if (result.result) {
-                                FeesTable.ajax.reload();
-                                toastr.success(result.message);
-                            }
-                            else {
-                                toastr.error(message);
-                            }
-
-                        }
-
-                    }
-                    xmlHttp.open('DELETE', url, true);
-                    xmlHttp.send();
-
+            $.ajax({
+                url: url, // Example API endpoint
+                type: 'GET',
+                success: function (response) {
+                    FeesTable.ajax.reload();
+                },
+                error: function (xhr, status, error) {
+                    console.error('There was a problem with the fetch operation:', error);
                 }
-
-
-
-
             });
 
 
         }
+
+
+        function PayFee(url) {
+
+            $.ajax({
+                url: url, // Example API endpoint
+                type: 'GET',
+                success: function (response) {
+                    FeesTable.ajax.reload();
+                },
+                error: function (xhr, status, error) {
+                    console.error('There was a problem with the fetch operation:', error);
+                }
+            });
+
+
+        }
+
+        function DownloadVoucher(filename) {
+            fetch(`/download-fee-voucher/${filename}`)
+                .then(response => {
+                    if (response.ok) {
+                        return response.blob();
+                    } else {
+                        throw new Error('Network response was not ok.');
+                    }
+                })
+                .then(blob => {
+                    const url = window.URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.style.display = 'none';
+                    a.href = url;
+                    a.download = filename;
+                    document.body.appendChild(a);
+                    a.click();
+                    window.URL.revokeObjectURL(url);
+                })
+                .catch(error => {
+                    console.error('There was a problem with the fetch operation:', error);
+                });
+        }
+
+        // function DownloadVoucher(filename) {
+
+        //     const pdfPath = filename;
+
+        //     fetch(`/download-fee-voucher/${filename}`)
+        //         .then(response => {
+        //             if (response.ok) {
+        //                 return response.blob();
+        //             } else {
+        //                 throw new Error('Network response was not ok.');
+        //             }
+        //         })
+        //         .then(blob => {
+        //             const url = window.URL.createObjectURL(blob);
+        //             const a = document.createElement('a');
+        //             a.style.display = 'none';
+        //             a.href = url;
+        //             a.download = pdfPath;
+        //             document.body.appendChild(a);
+        //             a.click();
+        //             window.URL.revokeObjectURL(url);
+        //         })
+        //         .catch(error => {
+        //             console.error('There was a problem with the fetch operation:', error);
+        //         });
+
+        // }
 
     </script>
 

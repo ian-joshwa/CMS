@@ -15,32 +15,29 @@ namespace CMS.DataAccessLayer.Infrastructure.Services
         public ISessionAppService SessionAppService { get; private set; }
         public ICourseAppService CourseAppService { get; private set; }
 
-        public IDepartmentAppService DepartmentAppService { get; private set; }
-
-        public IInstructorAppService InstructorAppService { get; private set; }
-
         public IEnrollementAppService EnrollementAppService { get; private set; }
 
         public IFeesAppService FeesAppService { get; private set; }
 
-        public IExaminationAppService ExaminationAppService { get; private set; }
 
         public IStudentRegistrationAppService StudentRegistrationAppService { get; private set; }
 
         public IResultAppService ResultAppService { get; private set; }
+        public ICourseYearAppService CourseYearAppService { get; private set; }
+
+        public IStudentDocumentAppService StudentDocumentAppService { get; private set; }
 
         public UnitOfWork(ApplicationDbContext context)
         {
             _context = context;
             SessionAppService = new SessionAppService(context);
             CourseAppService = new CourseAppService(context);
-            DepartmentAppService = new DepartmentAppService(context);
-            InstructorAppService = new InstructorAppService(context);
             EnrollementAppService = new EnrollementAppService(context);
             StudentRegistrationAppService = new StudentRegistrationAppService(context);
             ResultAppService = new ResultAppService(context);
             FeesAppService = new  FeesAppService(context);
-            ExaminationAppService = new ExaminationAppService(context);
+            CourseYearAppService = new CourseYearAppService(context);
+            StudentDocumentAppService = new StudentDocumentAppService(context);
         }
 
         public async Task<bool> Save()

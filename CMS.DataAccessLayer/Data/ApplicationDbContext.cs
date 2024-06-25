@@ -19,15 +19,13 @@ namespace CMS.DataAccessLayer.Data
         public DbSet<Session> Sessions { get; set; }
         public DbSet<Course> Courses { get; set; }
 
-        public DbSet<Department> Departments { get; set; }
-
-        public DbSet<Instructor> Instructors { get; set; }
         public DbSet<Enrollement> Enrollements { get; set; }
         public DbSet<Fees> Fees { get; set; }
 
-        public DbSet<Examination> Examinations { get; set; }
         public DbSet<StudentRegistration> StudentRegistrations { get; set; }
+        public DbSet<StudentDocument> StudentDocuments { get; set; }
 
         public DbSet<Result> Results { get; set; }
+        public DbSet<CourseYear> CourseYears { get; set; }
     }
 }

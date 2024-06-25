@@ -13,9 +13,13 @@ namespace CMS.Models
         [Key]
         public int Id { get; set; }
         public string Name { get; set; }
-        public int CreditHours { get; set; }
+        //public int CreditHours { get; set; }
         public Session? Session { get; set; }
         public int SessionId { get; set; }
+
+        public CourseYear? CourseYear { get; set; }
+
+        public int CourseYearId { get; set; }
 
         //public Instructor? Instructor { get; set; }
 

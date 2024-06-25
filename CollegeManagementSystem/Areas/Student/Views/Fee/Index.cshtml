@@ -1,0 +1,253 @@
+﻿@using CMS.Models
+@using System.Text.Json
+
+@{
+    ViewData["Title"] = "Central College";
+    TempData["Title"] = "Fee";
+    List<Fees> FeeList = (List<Fees>)ViewBag.FeeList;
+
+
+}
+
+<style>
+
+    .fee-watcher-template {
+        width: 400px;
+        height: 500px;
+        background-color: #fff;
+        color: #000;
+        font-family: poppins, sans-serif;
+        border: 1px #111 solid;
+        margin: 10px;
+    }
+
+    .voucher-logo {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+        padding: 10px 20px 5px 40px;
+    }
+
+    .voucher-logo img {
+        width: 200px;
+        object-fit: cover;
+    }
+
+    .voucher-sub-heading {
+        font-size: 18px;
+        margin-bottom: 0;
+        padding-left: 55px;
+    }
+
+
+    .watcher-content {
+        padding: 0 35px;
+    }
+
+    #watchers {
+        display: flex;
+        gap: 30px;
+        flex-wrap: wrap;
+    }
+
+
+</style>
+
+
+<div class="row">
+
+
+    @if (FeeList.Count > 0)
+    {
+
+
+        @foreach(var fee in FeeList)
+        {
+
+            <div class="col-12 detail-card">
+
+                <h2 class="field-heading">Fee Type: @fee.FeeType</h2>
+                <h2 class="field-heading">Amount: @fee.Amount</h2>
+                <h2 class="field-heading">Due Date: @fee.DueDate.ToString("dd-MMM-yyyy")</h2>
+                <h2 class="field-heading">Status: 
+                    @if(fee.Status == "Paid")
+                    {
+                        <span class="text-success">@fee.Status</span>
+                    }
+                    else
+                    {
+                        <span class="text-danger">@fee.Status</span>
+                    }
+                </h2>
+
+                @if(fee.Status == "Unpaid")
+                {
+                    <div style="display:flex; gap: 15px;">
+                        <button class="btn custom-btn" onclick="generatePDF(@JsonSerializer.Serialize(fee))">Print</button>
+                        <a class="btn btn-success" asp-area="Student" asp-controller="Fee" asp-action="PayFee" asp-route-id="@fee.Id">Pay</a>
+
+                    </div>
+                }
+
+
+            </div>
+            
+
+        }
+
+        
+
+    }
+
+    @* <div id="fee-watcher-template" style="display:none;">
+        <h2 id="fee-watcher-heading">Fee Watcher</h2>
+        <hr />
+        <div class="watcher-content">
+
+            <p><strong>Name:</strong> <span id="feetype">@FeeList[0].StudentRegistration.ApplicationUser.FirstName.ToUpper() @FeeList[0].StudentRegistration.ApplicationUser.LastName.ToUpper()</span></p>
+            <p><strong>Fee Type:</strong> <span id="feetype">@FeeList[0].FeeType</span></p>
+            <p><strong>Amount:</strong> <span id="amount">@FeeList[0].Amount</span></p>
+            <p><strong>Due Date:</strong> <span id="duedate">@FeeList[0].DueDate.ToString("dd-MMM-yyyy")</span></p>
+
+        </div>
+    </div> *@
+    
+    <div id="watchers" style="display:none;">
+
+        <div class="fee-watcher-template" >
+            <div class="voucher-logo">
+                <img src="/img/central-logo.png" />
+                <h3 class="voucher-sub-heading">Fee Voucher</h3>
+            </div>
+            <hr />
+            <div class="watcher-content">
+
+                <p><span>For Bank</span></p>
+                <p><strong>Student Id:</strong> <span class="studentId"></span></p>
+                <p><strong>CNIC:</strong> <span class="cnic"></span></p>
+                <p><strong>Name:</strong> <span class="name"></span></p>
+                <p><strong>Fee Type:</strong> <span class="feetype"></span></p>
+                <p><strong>Amount:</strong> <span class="amount"></span></p>
+                <p><strong>Due Date:</strong> <span class="duedate"></span></p>
+
+            </div>
+        </div>
+
+        <div class="fee-watcher-template" >
+            <div class="voucher-logo">
+                <img src="/img/central-logo.png" />
+                <h3 class="voucher-sub-heading">Fee Voucher</h3>
+            </div>
+            <hr />
+            <div class="watcher-content">
+
+                <p><span>For Student</span></p>
+                <p><strong>Student Id:</strong> <span class="studentId"></span></p>
+                <p><strong>CNIC:</strong> <span class="cnic"></span></p>
+                <p><strong>Name:</strong> <span class="name"></span></p>
+                <p><strong>Fee Type:</strong> <span class="feetype"></span></p>
+                <p><strong>Amount:</strong> <span class="amount"></span></p>
+                <p><strong>Due Date:</strong> <span class="duedate"></span></p>
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+</div>
+
+
+@section scripts {
+
+    <script type="text/javascript">
+
+
+        async function generatePDF(fee) {
+
+            // Fill template with data
+            let firstName = fee.StudentRegistration.ApplicationUser.FirstName.toUpperCase();
+            let lastName = fee.StudentRegistration.ApplicationUser.LastName.toUpperCase();
+
+            let studentIds = document.querySelectorAll(".studentId");
+            studentIds.forEach(function (studentId) {
+                studentId.textContent = fee.StudentRegistration.Id;
+            });
+
+            let cnics = document.querySelectorAll(".cnic");
+            cnics.forEach(function (cnic) {
+                cnic.textContent = fee.StudentRegistration.CNIC;
+            });
+
+            let names = document.querySelectorAll(".name");
+            names.forEach(function (name) {
+                name.textContent = `${firstName} ${lastName}`;
+            });
+
+            let feetypes = document.querySelectorAll(".feetype");
+            feetypes.forEach(function (feetype) {
+                feetype.textContent = fee.FeeType;
+            });
+
+            let amounts = document.querySelectorAll(".amount");
+            amounts.forEach(function (amount) {
+                amount.textContent = fee.Amount;
+            });
+
+            let duedates = document.querySelectorAll(".duedate");
+            duedates.forEach(function (duedate) {
+                duedate.textContent = new Date(fee.DueDate).toLocaleDateString('en-PK', {
+                    day: '2-digit',
+                    month: 'short',
+                    year: 'numeric'
+                });
+            });
+
+
+            // Show the template
+            const template = document.getElementById('watchers');
+            template.style.display = 'flex';
+
+            const canvas = await html2canvas(template, {
+                width: template.scrollWidth,
+                height: template.scrollHeight,
+                scale: 2 // Increase scale for better resolution
+            });
+
+            const imgData = canvas.toDataURL('image/png');
+            const { jsPDF } = window.jspdf;
+            const doc = new jspdf.jsPDF('landscape'); // Use landscape orientation
+
+            // Adjust the dimensions to fit the canvas properly
+            const imgWidth = 280;
+            const imgHeight = (canvas.height * imgWidth) / canvas.width;
+
+            doc.addImage(imgData, 'PNG', 10, 10, imgWidth, imgHeight);
+            const date = new Date(fee.DueDate); // Example date
+            const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            const monthName = monthNames[date.getMonth()];
+
+            doc.save(`fee-voucher-${monthName}.pdf`);
+
+            // Convert to PDF
+            // html2canvas(template, { scale: 2 }).then(canvas => {
+            //     const imgData = canvas.toDataURL('image/png');
+            //     const doc = new jspdf.jsPDF('landscape'); // landscape orientation to fit side by side
+            //     doc.addImage(imgData, 'PNG', 10, 10, 280, 210); // Adjust as necessary
+            //     doc.save('fee-watcher.pdf');
+
+            //     Hide the template after conversion
+            //     template.style.display = 'none';
+            // });
+            template.style.display = 'none';
+        }
+    
+    
+    
+    </script>
+
+
+
+}

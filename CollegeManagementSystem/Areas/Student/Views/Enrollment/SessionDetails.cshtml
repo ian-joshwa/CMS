@@ -1,0 +1,98 @@
+﻿@using CMS.Models;
+
+@{
+
+    ViewData["Title"] = "Central College";
+    TempData["Title"] = "Session Detail";
+    var session = (Session)ViewBag.Session;
+    var Courses = (List<Course>)ViewBag.Courses;
+
+}
+
+<div class="row">
+    <input type="hidden" id="Id" value="@session.Id" />
+    <div class="col-12 detail-card">
+        <h2 class="field-heading">Session Name: <span class="field-value field-value-normal">@session.SessionName</span></h2>
+        <h2 class="field-heading">Start Date: <span class="field-value field-value-normal">@session.StartTime.ToShortDateString()</span></h2>
+        <h2 class="field-heading">End Date: <span class="field-value field-value-normal">@session.EndTime.ToShortDateString()</span></h2>
+        <h2 class="field-heading">Admission Fee: <span class="field-value field-value-normal">@session.AdmissionFee</span></h2>
+        <h2 class="field-heading">Monthly Fee: <span class="field-value field-value-normal">@session.MonthlyFee</span></h2>
+        <h2 class="field-heading">Merit: <span class="field-value field-value-normal">@session.Merit</span></h2>
+        <h2 class="field-heading">Seats Available: <span id="seatsAvailable" class="field-value field-value-normal"></span></h2>
+        <h2 class="field-heading">Eligibility: 
+            @if(ViewBag.Eligible == "Eligible")
+            {
+                <span class="field-value field-value-normal text-success">@ViewBag.Eligible</span>
+            }
+            else
+            {
+                <span class="field-value field-value-normal text-danger">@ViewBag.Eligible</span>
+            }
+        </h2>
+    </div>
+
+    @if (Courses.Count > 0)
+    {
+
+        @for (int i = 1; i <= Courses.ElementAt(Courses.Count - 1).CourseYear.Year; i++)
+        {
+
+            <div class="col-12 detail-card">
+
+                <h2 class="field-heading">Year @i</h2>
+                @foreach (var course in Courses.Where(x => x.CourseYear.Year == i))
+                {
+
+                    <h3 class="field-value field-value-normal">@course.Name</h3>
+
+                }
+
+            </div>
+
+
+        }
+
+    }
+
+    @if (ViewBag.IsEligible && !ViewBag.IsEnrolled)
+    {
+        <div class="col-12" style="display: flex; gap: 15px; justify-content: flex-end;">
+
+            <a class="btn custom-btn" asp-area="Student" asp-controller="Enrollment" asp-action="StudentEnroll" asp-route-Id="@session.Id">Enroll</a>
+
+        </div>
+    }
+
+</div>
+
+
+
+
+@section scripts {
+
+    <script>
+
+        $(document).ready(function () {
+
+            let seats = $('#seatsAvailable');
+            let Id = $('#Id').val();
+
+            $.ajax({
+                url: '/Student/Enrollment/GetSessionSeats',
+                data: {'id': Id},
+                type: 'GET',
+                success: function (response) {
+                    debugger;
+                    seats.text(response);
+                },
+                error: function (xhr, status, error) {
+                    console.error(error);
+                }
+            });
+
+
+        });
+
+    </script>
+
+}

@@ -37,7 +37,7 @@ namespace CMS.DataAccessLayer.Infrastructure.Services
             _dbset.RemoveRange(entities);
         }
 
-        public T Get(Expression<Func<T, bool>> predicate, string? includeProperties = null)
+        public T? Get(Expression<Func<T, bool>> predicate, string? includeProperties = null)
         {
             IQueryable<T> query = _dbset;
             query = query.Where(predicate);

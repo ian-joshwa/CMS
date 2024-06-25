@@ -1,5 +1,7 @@
-﻿@{
-    ViewData["Title"] = "Enrollement";
+﻿@using CMS.CommonHelper
+@{
+    ViewData["Title"] = "Central College";
+    TempData["Title"] = "Enrollments";
 }
 
 <div>
@@ -9,9 +11,9 @@
             <h2 class="m-0">Enrollements</h2>
         </div>
 
-        <div class="col-6 button-col">
+        @* <div class="col-6 button-col">
             <a asp-area="Admin" asp-controller="Enrollement" asp-action="Create" class="btn custom-btn">Add</a>
-        </div>
+        </div> *@
     </div>
 
     <div class="row">
@@ -24,6 +26,7 @@
                     <tr>
                         <th>Student</th>
                         <th>Session</th>
+                        <th>Status</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -60,11 +63,13 @@
                     "data": "session.sessionName"
                 },
                 {
+                    "data": "status"
+                },
+                {
                     "data": "id",
                     "render": function (data) {
                         return `
-                                <a class="edit-btn" href="/Admin/Enrollement/Update?id=${data}"><i class="bi bi-pencil-square"></i></a>
-                                <a class="delete-btn" onclick=RemoveEnrollement("/Admin/Enrollement/Delete/${data}")><i class="bi bi-trash3-fill"></i></a>
+                                <a class="btn custom-btn" href="/Admin/Enrollement/Review?Id=${data}">Review</a>
                             `
                     }
                 }

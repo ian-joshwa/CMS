@@ -1,0 +1,44 @@
+﻿@using CMS.Models
+@model Result
+@{
+    ViewData["Title"] = "Central College";
+    TempData["Title"] = "Student Result";
+}
+
+<div class="row">
+
+    <div class="col-12">
+
+        <form method="post">
+
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="CourseId" />
+            <input type="hidden" asp-for="StudentRegistrationId" />
+
+            <label>Course Name</label>
+            <input disabled asp-for="Course.Name" class="form-control" />
+
+            <label asp-for="TotalMarks">Total Marks</label>
+            <input asp-for="TotalMarks" class="form-control" />
+            <span asp-validation-for="TotalMarks" class="text-danger"></span>
+
+            <label asp-for="Marks">Obtained Marks</label>
+            <input asp-for="Marks" class="form-control" />
+            <span asp-validation-for="Marks" class="text-danger"></span>
+            <br />
+            <button type="submit" class="btn btn-success">Save</button>
+            <a asp-area="Admin" asp-controller="Result" asp-action="Courses" asp-route-Id="@Model.StudentRegistrationId" class="btn btn-secondary">Back to list</a>
+        </form>
+
+
+    </div>
+
+
+</div>
+
+
+@section scripts {
+
+    <partial name="_ValidationScriptsPartial" />
+
+}
