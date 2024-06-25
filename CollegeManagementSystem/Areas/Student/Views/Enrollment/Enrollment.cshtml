@@ -1,5 +1,10 @@
 ﻿@model List<CMS.Models.Session>
 
+@{
+    ViewData["Title"] = "Central College";
+    TempData["Title"] = "Sessions";
+}
+
 <table class="table table-bordered table-striped">
 
     <thead>
@@ -23,7 +28,9 @@
                 <td>@session.SessionName</td>
                 <td>@session.StartTime.ToShortDateString()</td>
                 <td>@session.EndTime.ToShortDateString()</td>
-
+                <td>
+                    <a class="btn custom-btn" asp-area="Student" asp-controller="Enrollment" asp-action="SessionDetails" asp-route-id="@session.Id">Details</a>
+                </td>
 
             </tr>
 

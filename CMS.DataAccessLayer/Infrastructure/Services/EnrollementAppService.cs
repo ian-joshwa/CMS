@@ -30,6 +30,7 @@ namespace CMS.DataAccessLayer.Infrastructure.Services
             {
                 ss.StudentRegistrationId = enrollement.StudentRegistrationId;
                 ss.SessionId = enrollement.SessionId;
+                ss.Status = enrollement.Status;
                 _context.Enrollements.Update(ss);
             }
         }

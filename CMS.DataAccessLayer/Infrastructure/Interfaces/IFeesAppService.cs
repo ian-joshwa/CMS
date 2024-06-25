@@ -12,5 +12,7 @@ namespace CMS.DataAccessLayer.Infrastructure.Interfaces
     {
         void Update(Fees fees);
 
+        List<Fees> GetFeesList();
+
     }
 }

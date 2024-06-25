@@ -1,6 +1,10 @@
 ﻿@using CMS.CommonHelper;
-
 @model CMS.Models.Session
+
+@{
+    ViewData["Title"] = "Central College";
+    TempData["Title"] = "Session";
+}
 
 <div>
 
@@ -36,13 +40,27 @@
                 <input asp-for="EndTime" type="date" class="form-control" />
                 <span asp-validation-for="EndTime"></span>
 
+                <label asp-for="AdmissionFee" class="mt-3">Admission Fee</label>
+                <input asp-for="AdmissionFee" type="number" class="form-control" />
+                <span asp-validation-for="AdmissionFee"></span>
+
+                <label asp-for="Merit" class="mt-3">Merit %</label>
+                <input asp-for="Merit" type="number" class="form-control" />
+                <span asp-validation-for="Merit"></span>
+
+                <label asp-for="MonthlyFee" class="mt-3">Monthly Fee</label>
+                <input asp-for="MonthlyFee" type="number" class="form-control" />
+                <span asp-validation-for="MonthlyFee"></span>
+
                 <label asp-for="Capacity" class="mt-3">Capacity</label>
                 <input asp-for="Capacity" type="number" class="form-control" />
                 <span asp-validation-for="Capacity"></span>
 
-                <label asp-for="EnrolledCount" class="mt-3">Enrolled Count</label>
-                <input asp-for="EnrolledCount" type="number" class="form-control" />
-                <span asp-validation-for="EnrolledCount"></span>
+                <label asp-for="IsInterDocumentRequired" class="mt-3">Intermediate Document Required</label>
+                <br />
+                <input asp-for="IsInterDocumentRequired" type="checkbox"/>
+                <span asp-validation-for="IsInterDocumentRequired"></span>
+                <br />
 
                 <label asp-for="Status" class="mt-3">Status</label>
                 <select class="form-control" asp-for="Status" asp-items="SessionStatus.GetSessionStatus()">

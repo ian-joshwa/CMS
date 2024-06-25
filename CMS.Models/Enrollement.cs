@@ -16,6 +16,8 @@ namespace CMS.Models
 
         public int StudentRegistrationId { get; set; }
 
+        public string Status { get; set; }
+
         public Session? Session { get; set; }
         public int SessionId { get; set; }
     }

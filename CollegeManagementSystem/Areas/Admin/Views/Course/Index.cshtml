@@ -1,5 +1,6 @@
 ﻿@{
-    ViewData["Title"] = "Course";
+    ViewData["Title"] = "Central College";
+    TempData["Title"] = "Courses";
 }
 
 <div>
@@ -23,8 +24,8 @@
                 <thead>
                     <tr>
                         <th>Name</th>
-                        <th>CreditHours</th>
                         <th>Session</th>
+                        <th>Course Year</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -52,10 +53,10 @@
 
                 { "data": "name" },
                 {
-                    "data": "creditHours"
+                    "data": "session.sessionName"
                 },
                 {
-                    "data": "session.sessionName"
+                    "data": "courseYear.year"
                 },
                 {
                     "data": "id",

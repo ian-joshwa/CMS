@@ -15,6 +15,7 @@ namespace CMS.Models
         public string SessionName { get; set; }
 
         public string Description { get; set; }
+        public bool IsInterDocumentRequired { get; set; }
 
         //Department
 
@@ -22,9 +23,13 @@ namespace CMS.Models
 
         public DateTime EndTime { get; set; }
 
-        public int? Capacity { get; set; }
+        public int AdmissionFee { get; set; }
 
-        public int? EnrolledCount { get; set; }
+        public int MonthlyFee { get; set; }
+
+        public float Merit {  get; set; }
+
+        public int? Capacity { get; set; }
 
         public string Status { get; set; }
 

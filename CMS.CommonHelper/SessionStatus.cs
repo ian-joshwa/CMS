@@ -10,7 +10,7 @@ namespace CMS.CommonHelper
     public static class SessionStatus
     {
 
-        public const string Pending = "PENDING";
+        public const string UpComing = "UpComing";
         public const string Completed = "COMPLETED";
         public const string Ongoing = "ONGOING";
         public const string Canceled = "CANCELED";
@@ -18,7 +18,7 @@ namespace CMS.CommonHelper
         public static List<SelectListItem> GetSessionStatus()
         {
             List<SelectListItem> list = new List<SelectListItem>();
-            list.Add(new SelectListItem { Text=Pending, Value=Pending });
+            list.Add(new SelectListItem { Text= "Up Coming", Value= UpComing });
             list.Add(new SelectListItem { Text= Completed, Value= Completed });
             list.Add(new SelectListItem { Text= Ongoing, Value= Ongoing });
             list.Add(new SelectListItem { Text= Canceled, Value= Canceled });

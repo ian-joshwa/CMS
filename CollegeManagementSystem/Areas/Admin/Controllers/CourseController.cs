@@ -18,7 +18,7 @@ namespace CollegeManagementSystem.Areas.Admin.Controllers
 
         public IActionResult GetCourses()
         {
-            var couces = _unitOfWork.CourseAppService.GetAll(includeProperties: "Session");
+            var couces = _unitOfWork.CourseAppService.GetAll(includeProperties: "Session,CourseYear");
             return Json(new { data = couces });
         }
 
@@ -42,6 +42,17 @@ namespace CollegeManagementSystem.Areas.Admin.Controllers
 
             }
             ViewBag.Sessionlist = list;
+
+            var coursesYearList = _unitOfWork.CourseYearAppService.GetAll();
+            List<SelectListItem> cyList = new List<SelectListItem>();
+            foreach (var item in coursesYearList)
+            {
+                cyList.Add(new SelectListItem { Text = item.Year.ToString(), Value = item.Id.ToString() });
+
+
+            }
+            ViewBag.CourseYearlist = cyList;
+
             return View();
         }
 
@@ -81,6 +92,16 @@ namespace CollegeManagementSystem.Areas.Admin.Controllers
                 list.Add(new SelectListItem { Text = item.SessionName, Value = item.Id.ToString() });
             }
             ViewBag.SessionList = list;
+
+            var coursesYearList = _unitOfWork.CourseYearAppService.GetAll();
+            List<SelectListItem> cyList = new List<SelectListItem>();
+            foreach (var item in coursesYearList)
+            {
+                cyList.Add(new SelectListItem { Text = item.Year.ToString(), Value = item.Id.ToString() });
+
+
+            }
+            ViewBag.CourseYearlist = cyList;
             return View(cource);
             
         }

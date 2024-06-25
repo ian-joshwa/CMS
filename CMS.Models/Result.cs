@@ -15,10 +15,11 @@ namespace CMS.Models
 
         public int StudentRegistrationId { get; set; }
 
-        public Examination? Examination { get; set; }
+        public Course Course { get; set; }
 
-        public int ExaminationId { get; set; }
+        public int CourseId { get; set; }
 
+        public int TotalMarks { get; set; }
         public int Marks { get; set; }
 
     }

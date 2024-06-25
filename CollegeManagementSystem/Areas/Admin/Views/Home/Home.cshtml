@@ -1,15 +1,44 @@
-﻿
+﻿@{
+
+    ViewData["Title"] = "Central College";
+    TempData["Title"] = "Home";
+
+}
 
 
 <div class="row">
 
-    <div class="col-3">
+    <div class="col-4">
 
         <div class="dashboard-card">
 
             <i class="bi bi-people-fill"></i>
             <h3 class="card-heading">Students</h3>
             <h5 class="student-count"></h5>
+
+        </div>
+
+    </div>
+
+    <div class="col-4">
+
+        <div class="dashboard-card">
+
+            <i class="bi bi-people-fill"></i>
+            <h3 class="card-heading">Ongoing Sessions</h3>
+            <h5 class="ongoing-session-count"></h5>
+
+        </div>
+
+    </div>
+    
+    <div class="col-4">
+
+        <div class="dashboard-card">
+
+            <i class="bi bi-people-fill"></i>
+            <h3 class="card-heading">Completed Sessions</h3>
+            <h5 class="completed-session-count"></h5>
 
         </div>
 
@@ -30,6 +59,40 @@
                 success: function (response) {
                     debugger;
                     $('.student-count').text(response);
+                },
+                error: function (xhr, status, error) {
+                    console.error(error);
+                }
+            });
+
+
+        });
+
+        $(document).ready(function () {
+
+            $.ajax({
+                url: '/Admin/Home/GetOnGoingSessions',
+                type: 'GET',
+                success: function (response) {
+                    debugger;
+                    $('.ongoing-session-count').text(response);
+                },
+                error: function (xhr, status, error) {
+                    console.error(error);
+                }
+            });
+
+
+        });
+
+        $(document).ready(function () {
+
+            $.ajax({
+                url: '/Admin/Home/GetCompletedSessions',
+                type: 'GET',
+                success: function (response) {
+                    debugger;
+                    $('.completed-session-count').text(response);
                 },
                 error: function (xhr, status, error) {
                     console.error(error);

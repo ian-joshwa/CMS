@@ -1,0 +1,120 @@
+﻿@{
+    ViewData["Title"] = "Central College";
+    TempData["Title"] = "Course Years";
+}
+
+<div>
+
+    <div class="row mb-4">
+        <div class="col-6">
+            <h2 class="m-0">Course Years</h2>
+        </div>
+
+        <div class="col-6 button-col">
+            <a asp-area="Admin" asp-controller="CourseYear" asp-action="Create" class="btn custom-btn">Add</a>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-12">
+
+            <table class="table table-bordered" id="CourseYearTable">
+
+                <thead>
+                    <tr>
+                        <th>Course Year</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+@section scripts {
+
+    <script>
+
+        let CourseYearTable;
+
+        CourseYearTable = $('#CourseYearTable').DataTable({
+
+            "ajax": {
+                "url": "/Admin/CourseYear/GetCourseYears"
+            },
+            "columns": [
+
+
+                {
+                    "data": "year"
+                },
+                {
+                    "data": "id",
+                    "render": function (data) {
+                        return `
+                                <a class="edit-btn" href="/Admin/CourseYear/Update?id=${data}"><i class="bi bi-pencil-square"></i></a>
+                                <a class="delete-btn" onclick=RemoveCourseYear("/Admin/CourseYear/Delete/${data}")><i class="bi bi-trash3-fill"></i></a>
+                            `;
+                    }
+                }
+
+            ]
+
+
+        });
+
+
+        function RemoveCourseYear(url) {
+
+            Swal.fire({
+                title: "Are you sure?",
+                text: "You won't be able to revert this!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, delete it!"
+            }).then((result) => {
+                if (result.isConfirmed) {
+
+                    var xmlHttp = new XMLHttpRequest();
+
+
+                    xmlHttp.onreadystatechange = () => {
+
+                        if (xmlHttp.readyState == 4 && (xmlHttp.status >= 200 && xmlHttp.status < 400)) {
+
+                            var result = JSON.parse(xmlHttp.responseText);
+
+                            if (result.result) {
+                                CourseYearTable.ajax.reload();
+                                toastr.success(result.message);
+                            }
+                            else {
+                                toastr.error(message);
+                            }
+
+                        }
+
+                    }
+                    xmlHttp.open('DELETE', url, true);
+                    xmlHttp.send();
+
+                }
+
+
+
+
+            });
+
+
+        }
+
+    </script>
+
+}

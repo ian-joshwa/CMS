@@ -1,0 +1,35 @@
+﻿@using CMS.Models;
+@model Fees;
+@{
+
+    ViewData["Title"] = "Central College";
+    TempData["Title"] = "Pay Fee";
+
+}
+
+<div class="row">
+
+    <div class="col-12">
+
+        <form method="post" enctype="multipart/form-data">
+
+            <input asp-for="Id" type="hidden" />
+
+            <label asp-for="FeeVoucher">Upload Fee Voucher</label>
+            <input asp-for="FeeVoucher" type="file" name="file" accept=".pdf" />
+            <span asp-validation-for="FeeVoucher" class="text-danger"></span>
+
+
+            <button type="submit" class="btn btn-success">Pay</button>
+        </form>
+
+    </div>
+
+</div>
+
+
+@section scripts{
+
+    <partial name="_ValidationScriptsPartial" />
+
+}

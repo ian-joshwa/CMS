@@ -1,0 +1,110 @@
+﻿@using CMS.Models
+
+@{
+    ViewData["Title"] = "Central College";
+    TempData["Title"] = "Review";
+    var enrollment = (Enrollement)ViewBag.Enrollment;
+    var session = (Session)ViewBag.Session;
+    var inter = (StudentDocument)ViewBag.Inter;
+    var matric = (StudentDocument)ViewBag.Matric;
+
+}
+
+
+<div class="row">
+    <input type="hidden" id="Id" value="@session.Id" />
+    <div class="col-12 detail-card">
+        <h2 class="field-heading">Session Name: <span class="field-value field-value-normal">@session.SessionName</span></h2>
+        <h2 class="field-heading">Merit: <span class="field-value field-value-normal">@session.Merit</span></h2>
+        <h2 class="field-heading">Seats Available: <span id="seatsAvailable" class="field-value field-value-normal"></span></h2>
+        
+    </div>
+
+    <div class="col-12 detail-card">
+
+        <div class="row">
+
+            <div class="col-6">
+                <h2 class="field-heading mb-3">Matriculation Document Details</h2>
+                <h2 class="field-heading">Total Marks: <span class="field-value field-value-normal">@matric.TotalMarks</span></h2>
+                <h2 class="field-heading">Obtained Marks: <span class="field-value field-value-normal">@matric.ObtainedMarks</span></h2>
+                <h2 class="field-heading">Combination: <span class="field-value field-value-normal">@matric.Combination</span></h2>
+            </div>
+            <div class="col-6" style="display: flex; justify-content:center;">
+                <a href="@matric.Document" style="height:350px; width: 250px" data-fancybox="gallery">
+                    <img src="@matric.Document" style="height: 100%; width: 100%; object-fit:cover;" alt="Image 2">
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+
+    @if (session.IsInterDocumentRequired)
+    {
+
+        <div class="col-12 detail-card">
+
+            <div class="row">
+                
+                <div class="col-6">
+                    <h2 class="field-heading mb-3">Intermediate Document Details</h2>
+                    <h2 class="field-heading">Total Marks: <span class="field-value field-value-normal">@inter.TotalMarks</span></h2>
+                    <h2 class="field-heading">Obtained Marks: <span class="field-value field-value-normal">@inter.ObtainedMarks</span></h2>
+                    <h2 class="field-heading">Combination: <span class="field-value field-value-normal">@inter.Combination</span></h2>
+                </div>
+                <div class="col-6" style="display: flex; justify-content:center;">
+                    <a href="@inter.Document" style="height:350px; width: 250px" data-fancybox="gallery">
+                        <img src="@inter.Document" style="height: 100%; width: 100%; object-fit:cover;" alt="Image 2">
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+        
+    }
+
+    @if (enrollment.Status == "Pending")
+    {
+        <div class="col-12" style="display: flex; gap: 15px; justify-content: flex-end;">
+
+            <a class="btn custom-btn" asp-area="Admin" asp-controller="Enrollement" asp-action="StudentEnrollment" asp-route-Id="@enrollment.Id">Enroll</a>
+
+        </div>
+    }
+
+</div>
+
+
+@section scripts{
+
+    <script>
+
+        $(document).ready(function () {
+            $('[data-fancybox="gallery"]').fancybox({
+            });
+
+            let seats = $('#seatsAvailable');
+            let Id = $('#Id').val();
+
+            $.ajax({
+                url: '/Student/Enrollment/GetSessionSeats',
+                data: { 'id': Id },
+                type: 'GET',
+                success: function (response) {
+                    debugger;
+                    seats.text(response);
+                },
+                error: function (xhr, status, error) {
+                    console.error(error);
+                }
+            });
+
+
+
+        });
+
+    </script>
+
+}

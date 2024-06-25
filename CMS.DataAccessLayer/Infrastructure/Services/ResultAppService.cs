@@ -30,7 +30,8 @@ namespace CMS.DataAccessLayer.Infrastructure.Services
             if (ss != null)
             {
                 ss.StudentRegistrationId = result.StudentRegistrationId;
-                ss.ExaminationId= result.ExaminationId;
+                ss.CourseId= result.CourseId;
+                ss.TotalMarks= result.TotalMarks;
                 //ss.DepartmentId= session.DepartmentId;
                 ss.Marks = result.Marks;
                 _context.Results.Update(ss);

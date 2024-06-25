@@ -184,6 +184,11 @@ namespace CollegeManagementSystem.Areas.Admin.Controllers
 
         }
 
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+            return LocalRedirect("/");
+        }
 
         private ApplicationUser CreateUser()
         {

@@ -27,10 +27,13 @@ namespace CMS.DataAccessLayer.Infrastructure.Services
                 ss.Description = session.Description;
                 //ss.DepartmentId= session.DepartmentId;
                 ss.StartTime = session.StartTime;
+                ss.AdmissionFee = session.AdmissionFee;
+                ss.Merit = session.Merit;
+                ss.MonthlyFee = session.MonthlyFee;
                 ss.EndTime = session.EndTime;
                 ss.Capacity = session.Capacity;
-                ss.EnrolledCount = session.EnrolledCount;
                 ss.Status = session.Status;
+                ss.IsInterDocumentRequired = session.IsInterDocumentRequired;
                 _context.Sessions.Update(ss);
             }
         }

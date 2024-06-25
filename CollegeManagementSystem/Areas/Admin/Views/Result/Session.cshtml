@@ -1,0 +1,54 @@
+﻿@using CMS.Models;
+@model List<StudentRegistration>
+@{
+
+    ViewData["Title"] = "Central College";
+    TempData["Title"] = "Students";
+
+}
+
+
+<div class="row">
+
+    <div class="col-12">
+
+        <table class="table table-bordered table-striped">
+
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>CNIC</th>
+                    <th>Phone Number</th>
+                    <th>Actions</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                @foreach(var student in Model)
+                {
+                    
+                    <tr>
+                        <td>@student.ApplicationUser.FirstName @student.ApplicationUser.LastName</td>
+                        <td>@student.CNIC</td>
+                        <td>@student.PhoneNumber</td>
+                        <td>
+                            <a class="btn custom-btn" asp-area="Admin" asp-controller="Result" asp-action="Courses" asp-route-id="@student.Id">Courses</a>
+                        </td>
+
+                    </tr>
+
+
+                }
+
+            </tbody>
+
+
+        </table>
+
+
+    </div>
+
+
+</div>

@@ -1,5 +1,7 @@
-﻿@{
-    ViewData["Title"] = "Result";
+﻿@using CMS.CommonHelper
+@{
+    ViewData["Title"] = "Central College";
+    TempData["Title"] = "Result";
 }
 
 <div>
@@ -9,9 +11,9 @@
             <h2 class="m-0">Results</h2>
         </div>
 
-        <div class="col-6 button-col">
+        @* <div class="col-6 button-col">
             <a asp-area="Admin" asp-controller="Result" asp-action="Create" class="btn custom-btn">Add</a>
-        </div>
+        </div> *@
     </div>
 
     <div class="row">
@@ -22,9 +24,10 @@
 
                 <thead>
                     <tr>
-                        <th>Student </th>
-                        <th>Exam</th>
-                        <th>Marks</th>
+                        <th>Session Name</th>
+                        <th>Start Time</th>
+                        <th>End Time</th>
+                        <th>Status</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -39,34 +42,48 @@
 
 @section scripts {
 
-    <script>
+    <script type="text/javascript">
 
         let ResultTable;
 
         ResultTable = $('#ResultTable').DataTable({
 
             "ajax": {
-                "url": "/Admin/Result/GetResults"
+                "url": "/Admin/Result/GetSessions"
             },
             "columns": [
 
+                { "data": "sessionName" },
                 {
-                    "data": "studentRegistration.applicationUser",
+                    "data": "startTime",
                     "render": function (data) {
-                        return `${data.firstName} ${data.lastName}`;
+                        const date = new Date(data);
+                        return date.toLocaleDateString('en-PK');
                     }
                 },
-                { "data": "examination.examName" }
-                ,
-                // { "data": "session.sessionName" },
-                { "data": "marks" },
+                {
+                    "data": "endTime",
+                    "render": function (data) {
+                        const date = new Date(data);
+                        return date.toLocaleDateString('en-PK');
+                    }
+                },
+                {
+                    "data": "status",
+                    "render": function (data) {
+                        if (data == '@SessionStatus.UpComing') {
+                            return "Up Coming";
+                        }
+                        return data;
+                    }
+
+                },
                 {
                     "data": "id",
                     "render": function (data) {
                         return `
-                                <a class="edit-btn" href="/Admin/Result/Update?id=${data}"><i class="bi bi-pencil-square"></i></a>
-                                <a class="delete-btn" onclick=RemoveResult("/Admin/Result/Delete/${data}")><i class="bi bi-trash3-fill"></i></a>
-                            `;
+                                <a class="btn custom-btn" href="/Admin/Result/Session?Id=${data}">Students</a>
+                            `
                     }
                 }
 
@@ -76,51 +93,51 @@
         });
 
 
-        function RemoveResult(url) {
+        // function RemoveResult(url) {
 
-            Swal.fire({
-                title: "Are you sure?",
-                text: "You won't be able to revert this!",
-                icon: "warning",
-                showCancelButton: true,
-                confirmButtonColor: "#3085d6",
-                cancelButtonColor: "#d33",
-                confirmButtonText: "Yes, delete it!"
-            }).then((result) => {
-                if (result.isConfirmed) {
+        //     Swal.fire({
+        //         title: "Are you sure?",
+        //         text: "You won't be able to revert this!",
+        //         icon: "warning",
+        //         showCancelButton: true,
+        //         confirmButtonColor: "#3085d6",
+        //         cancelButtonColor: "#d33",
+        //         confirmButtonText: "Yes, delete it!"
+        //     }).then((result) => {
+        //         if (result.isConfirmed) {
 
-                    var xmlHttp = new XMLHttpRequest();
-
-
-                    xmlHttp.onreadystatechange = () => {
-
-                        if (xmlHttp.readyState == 4 && (xmlHttp.status >= 200 && xmlHttp.status < 400)) {
-
-                            var result = JSON.parse(xmlHttp.responseText);
-
-                            if (result.result) {
-                                ResultTable.ajax.reload();
-                                toastr.success(result.message);
-                            }
-                            else {
-                                toastr.error(message);
-                            }
-
-                        }
-
-                    }
-                    xmlHttp.open('DELETE', url, true);
-                    xmlHttp.send();
-
-                }
+        //             var xmlHttp = new XMLHttpRequest();
 
 
+        //             xmlHttp.onreadystatechange = () => {
+
+        //                 if (xmlHttp.readyState == 4 && (xmlHttp.status >= 200 && xmlHttp.status < 400)) {
+
+        //                     var result = JSON.parse(xmlHttp.responseText);
+
+        //                     if (result.result) {
+        //                         ResultTable.ajax.reload();
+        //                         toastr.success(result.message);
+        //                     }
+        //                     else {
+        //                         toastr.error(message);
+        //                     }
+
+        //                 }
+
+        //             }
+        //             xmlHttp.open('DELETE', url, true);
+        //             xmlHttp.send();
+
+        //         }
 
 
-            });
 
 
-        }
+        //     });
+
+
+        // }
 
     </script>
 

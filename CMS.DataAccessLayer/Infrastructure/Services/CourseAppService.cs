@@ -24,8 +24,9 @@ namespace CMS.DataAccessLayer.Infrastructure.Services
             if (cc != null)
             {
                 cc.Name = course.Name;
-                cc.CreditHours = course.CreditHours;
+                //cc.CreditHours = course.CreditHours;
                 cc.SessionId = course.SessionId;
+                cc.CourseYearId = course.CourseYearId;
                 //cc.InstructorId = course.InstructorId;
                 _context.Courses.Update(cc);
             }

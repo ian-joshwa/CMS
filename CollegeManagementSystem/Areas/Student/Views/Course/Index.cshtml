@@ -1,0 +1,45 @@
+﻿@using CMS.Models
+
+@{
+    ViewData["Title"] = "Central College";
+    TempData["Title"] = "Courses";
+    List<Course> Courses = (List<Course>)ViewBag.Courses;
+
+}
+
+
+<div class="row">
+
+    @if (Courses.Count > 0)
+    {
+
+        @for (int i = 1; i <= Courses.ElementAt(Courses.Count - 1).CourseYear.Year; i++)
+        {
+
+            <div class="col-12 detail-card">
+
+                <h2 class="field-heading">Year @i</h2>
+
+                <ol>
+
+                    @foreach (var course in Courses.Where(x => x.CourseYear.Year == i))
+                    {
+
+                        @* <h3 class="field-value field-value-normal">@course.Name</h3> *@
+                        <li class="field-value field-value-normal">@course.Name</li>
+
+                    }
+
+                </ol>
+
+                
+
+            </div>
+
+
+        }
+
+    }
+
+
+</div>

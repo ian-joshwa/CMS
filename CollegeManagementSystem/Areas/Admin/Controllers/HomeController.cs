@@ -20,8 +20,24 @@ namespace CollegeManagementSystem.Areas.Admin.Controllers
         public JsonResult GetStudentCount()
         {
 
-            var students = _unitOfWork.StudentRegistrationAppService.GetAll().ToList(); 
+            var students = _unitOfWork.StudentRegistrationAppService.GetAll().Where(x => x.IsEnrolled).ToList(); 
             return Json(students.Count);
+
+        }
+
+        public JsonResult GetOnGoingSessions()
+        {
+
+            var sessions = _unitOfWork.SessionAppService.GetAll().Where(x => x.Status == SessionStatus.Ongoing).ToList();
+            return Json(sessions.Count);
+
+        }
+        
+        public JsonResult GetCompletedSessions()
+        {
+
+            var sessions = _unitOfWork.SessionAppService.GetAll().Where(x => x.Status == SessionStatus.Completed).ToList();
+            return Json(sessions.Count);
 
         }
 
